@@ -366,8 +366,8 @@ ul {
 }
 
 .plan-btn:hover {
-    background-color: #58d5f7;
-    color: white;
+    background-color: #8fc85c;
+    color: #44432a;
     border-radius: 20px;
     -webkit-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
     -moz-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
