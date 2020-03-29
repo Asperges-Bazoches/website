@@ -22,11 +22,11 @@ $(document).ready(function () {
     }
 
     //Mouse click scroll
-    $(document).ready(function () {
-        $(".mouse").click(function () {
-            $('html, body').animate({scrollTop: '+=750px'}, 1200);
-        });
-    });
+    // $(document).ready(function () {
+    //     $(".mouse").click(function () {
+    //         $('html, body').animate({scrollTop: '+=750px'}, 1200);
+    //     });
+    // });
 
     //Features appearance
     $(window).scroll(function () {
