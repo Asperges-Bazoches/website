@@ -22,9 +22,9 @@ body {
     overflow: hidden;
     position: relative;
     background: -webkit-linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
-    background: linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
-    background: -webkit-radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
-    background: radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
+    background: linear-gradient(117deg, rgb(96, 87, 246), rgb(103,131,80));
+    background: -webkit-radial-gradient(rgb(169,237,157), rgb(105, 86, 235));
+    background: radial-gradient(rgb(169,237,157), rgb(103,131,80));
 }
 
 .bold {
@@ -50,7 +50,7 @@ body {
 }
 
 .header-btn {
-    background-color: #0ABCEB;
+    background-color: #44432a;
     border-radius: 10px;
     border: #0ABCEB;
     float: right;
@@ -63,7 +63,7 @@ body {
 }
 
 .header-btn:hover {
-    background-color: #58d5f7;
+    background-color: #44432a;
     color: white;
     border-radius: 20px;
     -webkit-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
@@ -114,18 +114,18 @@ body {
 .hero-btn {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    background-color: #25F18B;
+    background-color: #8fc85c;
     border-radius: 10px;
-    border: 1px solid #25F18B;
+    border: 1px solid #8fc85c;
     width: 210px;
     height: 51px;
-    color: white;
+    color: #44432a;
     margin: 30px auto;
 }
 
 .hero-btn:hover {
-    background-color: #6affb4;
-    color: white;
+    background-color: #8fc85c;
+    color: #39ad19;
     border-radius: 20px;
     -webkit-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
     -moz-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
