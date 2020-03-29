@@ -335,8 +335,8 @@ ul {
     font-size: 45px;
 }
 
-.plan-cost::before {
-    content: "$";
+.plan-cost::after {
+    content: "€";
 }
 
 .monthly {
@@ -349,12 +349,12 @@ ul {
 }
 
 .plan-btn {
-    background-color: #0ABCEB;
+    background-color: #8fc85c;
+    color: #44432a;
     border-radius: 10px;
     border: #0ABCEB;
     width: 164px;
     height: 51px;
-    color: white;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     display: block;
