@@ -7,7 +7,6 @@ var span = document.getElementsByClassName("close")[0];
 function openModal() {
   modal.style.display = "block";
 }
-// window.onload = openModal;
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {

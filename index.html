@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body onload="//openModal();">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -33,9 +33,6 @@
    <div class="modal-body">
      <p>Some text in the Modal Body</p>
      <p>Some other text...</p>
-   </div>
-   <div class="modal-footer">
-     <h3>Modal Footer</h3>
    </div>
  </div>
 </div>
@@ -115,34 +112,43 @@
 
     <div class="delivery-container row">
 
-        <h2 class="delivery-headline light">La livraison</h2>
+        <!-- <h2 class="delivery-headline light"> Com </h2> -->
 
-        <div class="col-sm-4 feature">
-
-            <div class="feature-icon feature-no-display">
-                <img class="feature-img" src="assets/images/walking-solid.svg" width="30px">
-            </div>
-            <h5 class="feature-head-text feature-no-display"> LIVRAISON </h5>
-            <p class="feature-subtext light feature-no-display"> Nous vous livrons personnellement. Evidemment, nous ne pourrons pas prendre en charge les commandes trop lointaines.</p>
+        <div class="col-sm-3 feature">
+          <div class="feature-icon feature-no-display">
+            <img class="feature-img" src="assets/images/phone-solid.svg" width="30px">
+          </div>
+          <h5 class="feature-head-text feature-no-display"> CONFIRMATION </h5>
+          <p class="feature-subtext light feature-no-display"> Nous vous téléphonerons pour vous confirmer votre commande et vous avertir de l'heure de livraison. </p>
         </div>
 
-        <div class="col-sm-4 feature">
+        <div class="col-sm-3 feature">
+          <div class="feature-icon feature-no-display">
+            <img class="feature-img" src="assets/images/walking-solid.svg" width="30px">
+          </div>
+          <h5 class="feature-head-text feature-no-display"> LIVRAISON </h5>
+          <p class="feature-subtext light feature-no-display"> Nous vous livrons personnellement. Evidemment, nous ne pourrons pas prendre en charge les commandes trop lointaines.</p>
+        </div>
+
+        <div class="col-sm-3 feature">
+          <div class="feature-icon feature-no-display feature-display-mid">
+            <img class="feature-img" src="assets/images/users-solid.svg" width="60px">
+          </div>
+          <h5 class="feature-head-text feature-no-display feature-display-mid"> REGROUPEZ-VOUS </h5>
+          <p class="feature-subtext light feature-no-display feature-display-mid"> Nous faisons au mieux pour regrouper les commandes village par village. N'hésitez pas à vous regrouper entre vous.</p>
+        </div>
+
+        <div class="col-sm-3 feature">
           <div class="feature-icon feature-no-display feature-display-last">
             <img class="bullet-img" src="assets/images/money-bill-wave-solid.svg" width="35px">
           </div>
-          <h5 class="feature-head-text feature-no-display feature-display-last"> PAIEMENT DURANT LA LIVRAISON </h5>
+          <h5 class="feature-head-text feature-no-display feature-display-last"> PAIEMENT  </h5>
           <p class="feature-subtext light feature-no-display feature-display-last"> Pas de paiement en ligne disponible. Payez directement votre commande durant la livraison. </p>
         </div>
 
-        <div class="col-sm-4 feature">
-            <div class="feature-icon feature-no-display feature-display-mid">
-                <img class="feature-img" src="assets/images/utensils-solid.svg">
-            </div>
-            <h5 class="feature-head-text feature-no-display feature-display-mid"> RESTEZ CHEZ VOUS ET CUISINEZ </h5>
-            <p class="feature-subtext light feature-no-display feature-display-mid"> Manger des produits frais et bio n'aura jamais été aussi facile. <a href="https://www.lesfruitsetlegumesfrais.com/fruits-legumes/legumes-racines-tubercules-et-tiges/asperge/bien-cuisiner">Retrouvez ici des conseils pour les cuisiner</a></p>
-        </div>
-
     </div>
+
+    <h3>Restez chez vous et cuisinez ...</h3>
 
     <!-- <a href="https://framaforms.org/aidez-la-ferme-a-livrer-les-asperges-1585505649">
         <button class="hero-btn">Je veux aider !</button>
@@ -178,7 +184,7 @@
                 <div class="plan-price-div text-center">
                     <div class="choose-plan-div">
                         <!-- <a class="plan-btn light" href="https://framaforms.org/commandez-des-asperges-bazochoises-1585502490"> -->
-                            <b>Dès mi-Avril</b>
+                            <b>Bientôt disponible</b>
                         <!-- </a> -->
                     </div>
                 </div>
