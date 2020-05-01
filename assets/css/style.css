@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: F8F9F9
 }
 
 .header-right {
@@ -21,10 +22,8 @@ body {
 .hero-background {
     overflow: hidden;
     position: relative;
-    background: -webkit-linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
-    background: linear-gradient(117deg, rgb(96, 87, 246), rgb(103,131,80));
-    background: -webkit-radial-gradient(rgb(169,237,157), rgb(105, 86, 235));
-    background: radial-gradient(rgb(169,237,157), rgb(103,131,80));
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    /* background: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%); */
 }
 
 .bold {
@@ -77,19 +76,13 @@ body {
     padding-bottom: 60px;
 }
 
-.mouse {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 85%;
-    margin: auto;
-    padding-bottom: 40px;
-    text-align: center;
+.emoji {
     cursor: pointer;
+    margin: 10px;
     transition: transform .4s ease;
 }
 
-.mouse:hover {
+.emoji:hover {
     transform: translateY(5px);
 }
 
@@ -349,9 +342,9 @@ ul {
 }
 
 .plan-btn {
-    background-color: #8fc85c;
-    color: #44432a;
+    background-color: #0da462;
     border-radius: 10px;
+    color: white;
     border: #0ABCEB;
     width: 164px;
     height: 51px;
@@ -366,8 +359,8 @@ ul {
 }
 
 .plan-btn:hover {
-    background-color: #8fc85c;
-    color: #44432a;
+    background-color: #0da462;
+    color: white;
     border-radius: 20px;
     -webkit-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
     -moz-box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
@@ -377,6 +370,7 @@ ul {
 .team {
     padding-bottom: 50px;
     padding-top: 60px;
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
 
 .team-container {
