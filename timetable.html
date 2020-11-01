@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <link rel="stylesheet" href="assets/css/timetable.css">
-  <title>Planning de livraison - Les asperges de Bazoches-Lès-Bray</title>
+  <link rel="stylesheet" href="assets/css/timetable/style.css">
+  <title>Schedule Template | CodyHouse</title>
 </head>
 <body>
   <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
     <div class="cd-schedule__timeline">
       <ul>
+        <li><span>08:00</span></li>
+        <li><span>08:30</span></li>
         <li><span>09:00</span></li>
         <li><span>09:30</span></li>
         <li><span>10:00</span></li>
@@ -27,66 +29,62 @@
         <li><span>15:30</span></li>
         <li><span>16:00</span></li>
         <li><span>16:30</span></li>
-        <li><span>17:00</span></li>
-        <li><span>17:30</span></li>
-        <li><span>18:00</span></li>
       </ul>
     </div> <!-- .cd-schedule__timeline -->
 
     <div class="cd-schedule__events">
       <ul>
         <li class="cd-schedule__group">
-          <div class="cd-schedule__top-info"><span>Lundi</span></div>
+          <div class="cd-schedule__top-info"><span>Monday</span></div>
 
           <ul>
             <li class="cd-schedule__event">
-              <a data-start="09:30" data-end="10:30" data-content="donnemarie" data-event="event-1" href="#0">
-                <em class="cd-schedule__name">Donnemarie-Dontilly</em>
+              <a data-start="09:30" data-end="10:30" data-content="event-bray" data-event="event-1" href="#0">
+                <em class="cd-schedule__name">Bray S/ Seine</em>
               </a>
             </li>
 
             <li class="cd-schedule__event">
-              <a data-start="11:00" data-end="12:30" data-content="nangis" data-event="event-2" href="#0">
+              <a data-start="11:00" data-end="12:30" data-content="event-nangis" data-event="event-2" href="#0">
                 <em class="cd-schedule__name">Nangis</em>
               </a>
             </li>
 
             <li class="cd-schedule__event">
-              <a data-start="14:00" data-end="15:15"  data-content="bray" data-event="event-3" href="#0">
-                <em class="cd-schedule__name">Bray S/ Seine</em>
+              <a data-start="14:00" data-end="15:15"  data-content="event-donnemarie" data-event="event-3" href="#0">
+                <em class="cd-schedule__name">Donnemarie-Dontilly</em>
               </a>
             </li>
           </ul>
         </li>
 
         <li class="cd-schedule__group">
-          <div class="cd-schedule__top-info"><span>Mardi</span></div>
+          <div class="cd-schedule__top-info"><span>Tuesday</span></div>
 
           <ul>
           </ul>
         </li>
 
         <li class="cd-schedule__group">
-          <div class="cd-schedule__top-info"><span>Mercredi</span></div>
+          <div class="cd-schedule__top-info"><span>Wednesday</span></div>
 
           <ul>
           </ul>
         </li>
 
         <li class="cd-schedule__group">
-          <div class="cd-schedule__top-info"><span>Jeudi</span></div>
+          <div class="cd-schedule__top-info"><span>Thursday</span></div>
 
           <ul>
           </ul>
         </li>
 
         <li class="cd-schedule__group">
-          <div class="cd-schedule__top-info"><span>Vendredi</span></div>
-            <ul>
-            </ul>
+          <div class="cd-schedule__top-info"><span>Friday</span></div>
+
+          <ul>
+          </ul>
         </li>
-
-
       </ul>
     </div>
 
@@ -106,10 +104,12 @@
       </div>
 
       <a href="#0" class="cd-schedule-modal__close text-replace">Close</a>
-      <div class="cd-schedule__cover-layer"></div>
-    </div> <!-- cd-schedule -->
+    </div>
 
-    <script src="assets/js/timetable/util.js"></script>
-    <script src="assets/js/timetable/main.js"></script>
-  </body>
-  </html>
+    <div class="cd-schedule__cover-layer"></div>
+  </div> <!-- .cd-schedule -->
+
+  <script src="assets/js/timetable/util.js"></script> <!-- util functions included in the CodyHouse framework -->
+  <script src="assets/js/timetable/main.js"></script>
+</body>
+</html>
