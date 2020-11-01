@@ -43,35 +43,6 @@
 
 <body onload="//openModal(modal);">
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
- <div class="modal-content">
-   <div class="modal-header">
-     <span class="close">&times;</span>
-     <h2>Commandes indisponibles entre 8h et 10h ce Lundi</h2>
-   </div>
-   <div class="modal-body">
-    <div class="row">
-      <div class="col-sm-8">
-        <br/>
-        <p>Pour vous proposer un module de commandes en ligne, nous utilisons le service <a href="https://framaforms.org/">Framaforms</a>, produit par l'association française <a href="https://framasoft.org/fr/">Framasoft</a>.</p>
-        <p>Avec le confinement, les différents services de <a href="https://framasoft.org/fr/">Framasoft</a>  sont plus fortement utilisés que d'ordinaire. Pour faire face à cette vague d'utilisation et rendre plus puissant <a href="https://framaforms.org/">Framaforms</a>, <a href="https://framasoft.org/fr/">Framasoft</a> a prévu une mise à jour ce lundi entre 8h et 10h.</p>
-        <p>Ainsi il vous sera <b>impossible d'effectuer des commandes ce Lundi 11 mai entre 8h et 10h</b> mais le service sera rétabli une fois la mise à jour terminée.</p>
-        <br/>
-      </div>
-      <div class="col-sm-4">
-        <center>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Framasoft_Logo.svg/1200px-Framasoft_Logo.svg.png" width="200px">
-        </center>
-      </div>
-    </div>
-    <p><a href="https://framasoft.org/fr/">Découvrir Framasoft</a></p>
-    <p><a href="https://status.framasoft.org/incident/613">Plus d'infos sur cette mise à jour</a></p>
-   </div>
- </div>
-</div>
-
 <!-- Credits -->
 <div id="credits" class="modal">
   <!-- Modal content -->
@@ -154,7 +125,7 @@
 
     <div class="delivery-container row">
 
-      <div class="col-sm-4 feature">
+      <div class="col-sm-3 feature">
         <div class="feature-icon feature-no-display">
           <img class="feature-img" src="assets/images/cart-arrow-down-solid.svg" width="30px">
         </div>
@@ -162,7 +133,7 @@
         <p class="feature-subtext light feature-no-display"> Utilisez le formulaire de commande, nous vous rappelerons afin de confirmer la commande. </p>
       </div>
 
-      <div class="col-sm-4 feature">
+      <div class="col-sm-3 feature">
         <div class="feature-icon feature-no-display">
           <img class="feature-img" src="assets/images/phone-solid.svg" width="30px">
         </div>
@@ -170,13 +141,13 @@
         <p class="feature-subtext light feature-no-display"> Commandez vos asperges par téléphone, au 01.60.67.14.23. </p>
       </div>
 
-      <!--<div class="col-sm-4 feature">
+      <div class="col-sm-3 feature">
         <div class="feature-icon feature-no-display">
           <img class="feature-img" src="assets/images/walking-solid.svg" width="30px">
         </div>
         <h5 class="feature-head-text feature-no-display"> LIVRAISON </h5>
-        <p class="feature-subtext light feature-no-display"> Nous vous livrons personnellement. Evidemment, nous ne pourrons pas prendre en charge les commandes trop lointaines.</p>
-      </div>-->
+        <p class="feature-subtext light feature-no-display"> <a id="btn-timetable">Regarder le planning!</a> Peut-être que nous passerons près de chez vous prochainement.</p>
+      </div>
 
       <!--<div class="col-sm-3 feature">
         <div class="feature-icon feature-no-display feature-display-mid">
@@ -186,7 +157,7 @@
         <p class="feature-subtext light feature-no-display feature-display-mid"> Nous faisons au mieux pour regrouper les commandes village par village. N'hésitez pas à vous regrouper entre vous.</p>
       </div>-->
 
-      <div class="col-sm-4 feature">
+      <div class="col-sm-3 feature">
         <div class="feature-icon feature-no-display feature-display-last">
           <img class="bullet-img" src="assets/images/money-bill-wave-solid.svg" width="35px">
         </div>
@@ -281,7 +252,7 @@
       <div >
       <div />
 
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <a href="tel:+33160671423"
           style="display: inline-block;
           width: 35px; height: 35px; border-radius:50%;
@@ -296,7 +267,7 @@
           color: black;
           background-color: #19a96e;">+33160671423</a>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <a href="https://www.facebook.com/earl.champramard"
           style="display: inline-block;
           width: 35px; height: 35px; border-radius:50%;
@@ -311,6 +282,21 @@
           margin: 25px auto;
           background-color: #3d5a99;">earl.champramard</a>
       </div>
+      <div class="col-sm-4">
+        <a id = "btn-timetable-2"
+          style="display: inline-block;
+          width: 35px; height: 35px; border-radius:50%;
+          padding-top: 5px;
+          margin: 25px auto;
+          background-color: #248763;"><img src="assets/images/walking-solid.svg" width="15px"/></a>
+        <a id = "btn-timetable-3"
+          style="display: inline-block;
+          width: 170px; height: 35px; border-radius: 5%;
+          color: black;
+          padding-top: 5px;
+          margin: 25px auto;
+          background-color: #248763;">Nous nous déplaçons</a>
+      </div>
 
       <br/>
 
@@ -319,11 +305,24 @@
 
 </div> <!--team-section--->
 
+
+<div id="timetableModal" class="modal">
+  <!-- Modal content -->
+ <div class="modal-content">
+   <div class="modal-header">
+     <span id="close-ttable" class="close">&times;</span>
+     <h2>Retrouvez nous dans le sud Seine-et-Marne</h2>
+   </div>
+   <div class="modal-body">
+     <iframe width="100%" height="75%" src="timetable.html" style="border: 0px solid black"></iframe><br/>
+   </div>
+ </div>
+</div>
+
 <!-- Footer
   ================================================== -->
 
 <div class="footer">
-
     <div class="container">
         <div class="row">
 
@@ -342,15 +341,9 @@
                     <!-- <a href="https://www.facebook.com/earl.champramard"> <img
                             src="assets/images/facebook.svg"/> </a> -->
                 </div>
-                <!--social-links-->
             </div>
-            <!--social-links-parent-->
-
         </div>
-        <!--row-->
-
     </div>
-    <!--container-->
 </div>
 <!--footer-->
 
