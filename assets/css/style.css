@@ -520,24 +520,25 @@ ul {
 
 /* Modal Content */
 .modal-content {
-  position: relative;
+  position:fixed;
+  top:auto; right:auto; left:auto; bottom:0;
   background-color: #f8f9f9;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: auto;
+  height: 90%;
+  width: 90%; margin-left: 5%; margin-right: 5%;
   padding: 0;
   border: 1px solid #888;
-  width: 95%;
+  border-radius: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  margin-top: 10px;
+  animation-name: animatebottom;
+  animation-duration: 0.5s;
 }
 
 /* Add Animation */
-@keyframes animatetop {
- from {top: -300px; opacity: 0}
- to {top: 0; opacity: 1}
+@keyframes animatebottom {
+ from {bottom: -300px; opacity: 0}
+ to {bottom: 0; opacity: 1}
 }
 
 /* The Modal (background) */
@@ -545,8 +546,10 @@ ul {
  display: none; /* Hidden by default */
  position: fixed; /* Stay in place */
  z-index: 5; /* Sit on top */
- left: 0;
- top: 0;
+ top: auto;
+ left: auto;
+ right:auto;
+ bottom:0;
  width: 100%; /* Full width */
  height: 100%; /* Full height */
  overflow: auto; /* Enable scroll if needed */
