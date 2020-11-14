@@ -1,7 +1,7 @@
 {
   "background_color" : "#5fc1bc",
   "description" : "Commander des asperges blanches et vertes bio depuis le site officiel de la ferme Champ Ramard, située à Bazoches-Lès-Bray en Seine et Marne (77).",
-  "display" : "fullscreen",
+  "display" : "standalone",
   "icons" : [
     {
       "src" : "assets/logo/logo_192.png",
@@ -20,6 +20,6 @@
     }
   ],
   "name" : "Les asperges de Bazoches-Lès-Bray",
-  "short_name" : "Champ Ramard",
+  "short_name" : "ChampRamard",
   "start_url" : "/index.html"
 }
