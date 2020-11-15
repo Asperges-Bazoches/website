@@ -78,72 +78,45 @@
  </div>
 </div>
 
-
-<!-- Navigation
-    ================================================== -->
-<div class="hero-background">
-    <div class="container">
-        <div class="header-container header">
-            <!-- <a class="navbar-brand logo" href="#"> <img class="logo" src="assets/images/logo.svg" width="80px"/> </a> -->
-            <div class="header-right">
-                <!--<a class="navbar-item" href="#team">Nous contacter</a>-->
-                <!--<a class="navbar-item" href="#delivery">Plus d'informations</a>-->
-                <!--<b><a class="navbar-item" href="#pricing">Commander</a></b>-->
-            </div>
-        </div>
-        <!--navigation-->
-
-
-        <!-- Hero-Section
-          ================================================== -->
-
-        <div class="hero row" style="height: 100px">
-            <div class="hero-right col-sm-12 col-sm-12">
-                <h1 class="header-headline bold">Formulaire de commande<br></h1>
-            </div>
-        </div>
-    </div> <!--hero-container-->
-
-</div><!--hero-background-->
-
-
 <!-- delivery
   ================================================== -->
 
 <div id="delivery" class="delivery-section">
 
+    <h2 style="color:#FFFFFF">Formulaire de commande</h2>
+
     <div class="delivery-container row">
 
       <div class="col-sm-3 feature">
-        <div class="feature-icon feature-no-display">
+        <div class="feature-icon feature-display">
           <img class="feature-img" src="assets/images/cash-register-solid.svg" style="max-width: 25px;width: 35px;">
         </div>
-        <h5 class="feature-head-text feature-no-display"> Remplissez le formulaire </h5>
-        <p class="feature-subtext light feature-no-display"> Le mail et le téléphone sont obligatoires pour le bon déroulement de la commande. </p>
+        <h5 class="feature-head-text feature-display"> Remplissez le formulaire </h5>
+        <p class="feature-subtext light feature-display"> Le mail et le téléphone sont obligatoires pour le bon déroulement de la commande. </p>
       </div>
 
       <div class="col-sm-3 feature">
-        <div class="feature-icon feature-no-display">
+        <div class="feature-icon feature-display">
           <img class="feature-img" src="assets/images/envelope-solid.svg" style="max-width: 25px;width: 35px;">
         </div>
-        <h5 class="feature-head-text feature-no-display"> Mail de bonne réception </h5>
-        <p class="feature-subtext light feature-no-display"> Un mail vous sera envoyé automatiquement pour confirmer la bonne réception de votre commande. Elle est ensuite soumise à validation. </p>
+        <h5 class="feature-head-text feature-display"> Mail de bonne réception </h5>
+        <p class="feature-subtext light feature-display"> Un mail vous sera envoyé pour confirmer la bonne réception de votre commande. Elle est ensuite soumise à validation. </p>
       </div>
 
       <div class="col-sm-3 feature">
-        <div class="feature-icon feature-no-display">
+        <div class="feature-icon feature-display">
           <img class="feature-img" src="assets/images/envelope-solid.svg" style="max-width: 25px;width: 35px;">
         </div>
-        <h5 class="feature-head-text feature-no-display"> Mail de confirmation </h5>
-        <p class="feature-subtext light feature-no-display"> Si votre commande est validée, vous receverez un second mail. Si l'horaire que vous avez proposé ne convient pas, nous vous contacterons par téléphone.
+        <h5 class="feature-head-text feature-display"> Mail de confirmation </h5>
+        <p class="feature-subtext light feature-display"> Si votre commande est validée, vous receverez un second mail. Si l'horaire que vous avez proposé ne convient pas, nous vous contacterons par téléphone.
       </div>
 
       <div class="col-sm-3 feature">
-        <div class="feature-icon feature-no-display feature-display-last">
+        <div class="feature-icon feature-display feature-display-last">
           <img class="bullet-img" src="assets/images/cart-arrow-down-solid.svg" style="max-width: 27px;width: 35px;">
         </div>
-        <h5 class="feature-head-text feature-no-display feature-display-last"> Récupérez votre dû  </h5>
-        <p class="feature-subtext light feature-no-display feature-display-last"> Pas de paiement en ligne disponible. Payez directement votre commande sur place.</p>
+        <h5 class="feature-head-text feature-display feature-display-last"> Récupérez votre dû  </h5>
+        <p class="feature-subtext light feature-display feature-display-last"> Pas de paiement en ligne disponible. Payez directement votre commande sur place.</p>
       </div>
 
     </div>
@@ -154,14 +127,72 @@
   ================================================== -->
 <div id="order" class="pricing-background">
 
-  <center>
-  <br/>
-  <a id="btn-timetable">Consultez notre planning de livraisons groupées !</a>
-  <h1> TO </h1>
-  <h1> DO </h1>
-  <h1> .. </h1>
-  <br/>
-</center>
+  <form style="margin-bottom: 80px"><center>
+
+    <div class="pricing-table row">
+      <div class="col-sm-4">
+        <div class="mid-plan" style="height:350px">
+          <center><img src="assets/images/apserges_blanches.jpg"  width="145px" /></center>
+          <h3 class="plan-title light">ASPERGES BLANCHES</h3>
+          <h4 class="plan-cost bold">8</h4>
+          <h5 class="monthly">le kilo</h5>
+          <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0"><br>
+        </div><!--pro-plan--->
+      </div><!--col-->
+
+      <div class="col-sm-4">
+          <div class="mid-plan" style="height:350px">
+            <center><img src="assets/images/apserges_verte.jpg" width="150px" /></center>
+            <h3 class="plan-title light">ASPERGES VERTES</h3>
+            <h4 class="plan-cost bold">8</h4>
+            <h5 class="monthly">le kilo</h5>
+            <input type="number" id="aspv" name="aspv" min="0" max="50" step="1" value="0"><br>
+          </div><!--basic-plan--->
+      </div><!--col-->
+
+
+      <div class="col-sm-4">
+          <div class="mid-plan" style="height:350px">
+            <center><img src="assets/images/strawberry-pixabay.jpg"  width="150px" /></center>
+            <h3 class="plan-title light">FRAISES</h3>
+            <h4 class="plan-cost bold">8</h4>
+            <h5 class="monthly">le kilo</h5>
+            <input type="number" id="fraise" name="fraise" min="0" max="50" step="1" value="0"><br>
+          </div><!--basic-plan--->
+      </div><!--col-->
+    </div>  <!--pricing-table-->
+
+
+    <div class="row" style="margin: 10px">
+      <div class="col-sm-3"  style="margin-bottom: 30px">
+        <label for="name">Prénom Nom</label><br>
+        <input type="text" id="name" name="name"><br><br/>
+        <label for="email">Adresse email</label><br>
+        <input type="email" id="mail" name="mail" placeholder="exemple@protonmail.com"><br><br/>
+        <label for="phone">Téléphone</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="0160670000"><br><br/>
+      </div>
+      <div class="col-sm-3" style="margin-bottom: 30px">
+        <label for="place">Point de vente <a id="btn-timetable">(Notre planning)</a></label><br>
+        <select name="place" id="place">
+          <option value="bazoches">Bazoches-Lès-Bray (Tous les jours)</option>
+        </select><br/><br/>
+        <label for="date">Date</label><br/>
+        <input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01">
+        <select name="hour" id="hour">
+          <option value="morning">Matin</option>
+          <option value="afternoon">Après-midi</option>
+        </select><br>
+      </div>
+      <div class="col-sm-6" style="margin-bottom: 30px">
+        <label for="more">Commentaire</label><br/>
+        <textarea id="more" name="more" rows="4" cols="50" placeholder="Utilisez ce champ pour toute information que vous souhaiteriez nous faire parvenir..."></textarea><br/><br/><br/>
+      </div>
+    </div>
+
+     <input type="submit" value="Valider la commande">
+
+ <center></form>
 
 </div><!--pricing-background-->
 
