@@ -26,9 +26,11 @@ var modal_ttable = document.getElementById("timetableModal");
 var span_ttable = document.getElementById("close-ttable");
 
 // setup actions
-link_ttable.onclick = function(){openModal(modal_ttable)}
-link_ttable_2.onclick = function(){openModal(modal_ttable)}
-link_ttable_3.onclick = function(){openModal(modal_ttable)}
+for(link of [link_ttable, link_ttable_2, link_ttable_3]){
+  if (link != null){
+    link.onclick = function(){openModal(modal_ttable)}
+  }
+}
 link_credit.onclick = function(){openModal(modal_credit)}
 span.onclick = function(){closeModal(modal)}
 span_credit.onclick = function(){closeModal(modal_credit)}
