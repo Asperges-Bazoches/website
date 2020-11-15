@@ -182,7 +182,8 @@
         <select name="hour" id="hour">
           <option value="morning">Matin</option>
           <option value="afternoon">Après-midi</option>
-        </select><br>
+        </select><br><br>
+        <input type="text" id="ghooost" value="" style="display:none">
       </div>
       <div class="col-sm-6" style="margin-bottom: 30px">
         <label for="more">Commentaire</label><br/>
@@ -191,7 +192,17 @@
     </div>
 
      <h2>Montant : <b id="price">0</b>€</h2>
-     <input type="submit" value="Valider la commande" formaction="api/order.php" formmethod="POST">
+     <!--(Anti-robot) Cliquez sur le cheval
+     <label class="radio-inline"><input type="radio" name="optradio" value="nope1" checked>
+       <img src="assets/images/air-freshener-solid.svg" width="20px"></label>
+     <label class="radio-inline"><input type="radio" name="optradio" value="horse">
+       <img src="assets/images/horse-solid.svg" width="30px"></label>
+     <label class="radio-inline"><input type="radio" name="optradio" value="nope2">
+       <img src="assets/images/coffee-solid.svg" width="30px"></label><br/><br/>-->
+     <p>(Anti-robot) Cliquez sur le cheval de gauche jusqu'à ce que les deux soient de la même taille</p>
+     <img id="left-horse" src="assets/images/horse-solid.svg" style="width:30px;">
+     <img src="assets/images/horse-solid.svg" width="60px"></br></br>
+     <input type="submit" id="submit" value="Valider la commande" formaction="api/order.php" formmethod="POST" style="display:none">
 
  <center></form>
 
