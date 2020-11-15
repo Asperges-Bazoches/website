@@ -190,69 +190,12 @@
       </div>
     </div>
 
-     <input type="submit" value="Valider la commande">
+     <h2>Montant : <b id="price">0</b>€</h2>
+     <input type="submit" value="Valider la commande" formaction="api/order.php" formmethod="POST">
 
  <center></form>
 
 </div><!--pricing-background-->
-
-<!-- Team
-  ================================================== -->
-
-<div id="team" class="team">
-    <h2 class="team-section-header light text-center">EARL Champ Ramard</h2>
-
-    <center>
-
-      <div class="col-sm-4">
-        <a href="tel:+33160671423"
-          style="display: inline-block;
-          width: 35px; height: 35px; border-radius:50%;
-          padding-top: 5px;
-          margin: 25px auto;
-          background-color: #19a96e;"><img src="assets/images/phone-solid.svg" width="22px"/></a>
-        <a href="tel:+33160671423"
-          style="display: inline-block;
-          width: 120px; height: 35px; border-radius: 5%;
-          padding-top: 5px;
-          margin: 25px auto;
-          color: black;
-          background-color: #19a96e;">+33160671423</a>
-      </div>
-      <div class="col-sm-4">
-        <a href="https://www.facebook.com/earl.champramard"
-          style="display: inline-block;
-          width: 35px; height: 35px; border-radius:50%;
-          padding-top: 5px;
-          margin: 25px auto;
-          background-color: #3d5a99;"><img src="assets/images/facebook.svg" /></a>
-        <a href="https://www.facebook.com/earl.champramard"
-          style="display: inline-block;
-          width: 150px; height: 35px; border-radius: 5%;
-          padding-top: 5px;
-          color : white;
-          margin: 25px auto;
-          background-color: #3d5a99;">earl.champramard</a>
-      </div>
-      <div class="col-sm-4">
-        <a id = "btn-timetable-2"
-          style="display: inline-block;
-          width: 35px; height: 35px; border-radius:50%;
-          padding-top: 5px;
-          margin: 25px auto;
-          background-color: #248763;"><img src="assets/images/walking-solid.svg" width="15px"/></a>
-        <a id = "btn-timetable-3"
-          style="display: inline-block;
-          width: 170px; height: 35px; border-radius: 5%;
-          color: black;
-          padding-top: 5px;
-          margin: 25px auto;
-          background-color: #248763;">Nous nous déplaçons</a>
-      </div>
-    </center>
-
-</div> <!--team-section--->
-
 
 <div id="timetableModal" class="modal">
   <!-- Modal content -->
@@ -284,10 +227,6 @@
 
             <div class="col-sm-2">
                 <div class="social-links">
-                    <!--<a href="https://twitter.com/webscopeapp"> <img class="social-link"
-                                                                    src="assets/images/twitter.svg"/> </a>-->
-                    <!-- <a href="https://www.facebook.com/earl.champramard"> <img
-                            src="assets/images/facebook.svg"/> </a> -->
                 </div>
             </div>
         </div>
@@ -299,6 +238,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
+<script src="assets/js/order.js"></script>
 <script src="assets/js/modal.js"></script>
 <script src="assets/js/script.js"></script>
 
