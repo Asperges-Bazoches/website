@@ -3,7 +3,6 @@ var aspb = document.getElementById("aspb")
 var aspv = document.getElementById("aspv")
 var fraise = document.getElementById("fraise")
 
-
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 aspb.value = urlParams.get("aspb");
