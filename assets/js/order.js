@@ -35,6 +35,7 @@ var radios = document.querySelectorAll('input[type=radio][name="optradio"]');
 Array.prototype.forEach.call(radios, function(radio) {
    radio.addEventListener('change', displaySubmit);
 });
+*/
 
 // DISABLE FORM SUBMIT BY PRESSING ENTER
 $(document).on("keypress", 'form', function (e) {
@@ -44,7 +45,6 @@ $(document).on("keypress", 'form', function (e) {
         return false;
     }
 });
-*/
 
 // DUMMY ANTI ROBOT TRICK #2
 var cnt = 0
