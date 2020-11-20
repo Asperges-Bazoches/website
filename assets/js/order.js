@@ -2,6 +2,14 @@
 var aspb = document.getElementById("aspb")
 var aspv = document.getElementById("aspv")
 var fraise = document.getElementById("fraise")
+
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+aspb.value = urlParams.get("aspb");
+aspv.value = urlParams.get("aspv");
+fraise.value = urlParams.get("fraise");
+
 computeBill = function(){
   let price
   price =  aspb.value*8

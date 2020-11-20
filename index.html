@@ -188,7 +188,9 @@
     <h2 class="pricing-section-header light text-center">Des asperges (bio) pour tous les goûts</h2>
     <h4 class=" pricing-section-sub text-center light">... et des fraises (bio) en dessert !</h4>
 
+    <center>
     <div class="pricing-table row">
+      <form action="commander.html" method="get">
       <div class="col-sm-4">
         <div class="mid-plan">
           <center>
@@ -197,10 +199,8 @@
           <h3 class="plan-title light">ASPERGES BLANCHES</h3>
           <h4 class="plan-cost bold">8</h4>
           <h5 class="monthly">le kilo</h5>
-          <!--<div class="plan-price-div text-center"> <div class="choose-plan-div">
-          <!--<a class="plan-btn light" href="https://framaforms.org/commandez-des-asperges-bazochoises-1585502490"><b>Commander</b></a>-->
-          <b>Non disponible</b>
-          <!--</div> </div>-->
+          <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0"><br>
+          <!--<b>Non disponible</b>-->
         </div><!--pro-plan--->
       </div><!--col-->
 
@@ -212,10 +212,8 @@
               <h3 class="plan-title light">ASPERGES VERTES</h3>
               <h4 class="plan-cost bold">8</h4>
               <h5 class="monthly">le kilo</h5>
-              <!-- <div class="plan-price-div text-center"> <div class="choose-plan-div">-->
-              <!-- <a class="plan-btn light" href="https://framaforms.org/commandez-des-asperges-bazochoises-1585502490"></a>-->
-              <b>Non disponible</b>
-              <!--</div> </div>-->
+              <input type="number" id="aspv" name="aspv" min="0" max="50" step="1" value="0"><br>
+              <b style="display:none">Non disponible</b>
           </div><!--basic-plan--->
       </div><!--col-->
 
@@ -228,18 +226,26 @@
               <h3 class="plan-title light">FRAISES</h3>
               <h4 class="plan-cost bold"></h4>
               <h5 class="monthly">le kilo</h5>
-              <!-- <div class="plan-price-div text-center"> <div class="choose-plan-div">-->
-              <!-- <a class="plan-btn light" href="https://framaforms.org/commandez-des-asperges-bazochoises-1585502490"></a>-->
-              <b>Non disponible</b>
-              <!--</div> </div>-->
+              <input type="number" id="fraise" name="fraise" min="0" max="50" step="1" value="0"><br>
+              <b style="display:none">Non disponible</b>
           </div><!--basic-plan--->
       </div><!--col-->
+        <center>
+          <button type="dialog"><h5>Poursuivre la commande</h5></a></button>
+        </center>
+       </form>
     </div>  <!--pricing-table-->
+  </center>
 
-    <!-- <div id="pricing-strawberry" class="pricing-table row">
-    </div>  -->
+    <form>
+      <center>
+        <h3>Suivre une ancienne commande</h3>
+        <input type="text" id="id-cmd" name="id-cmd" placeholder="000-XXXX" style="height:47px">
+        <button type="dialog"><h5>Rechercher</h5></a></button>
+      </center>
+    </form>
 
-    <center>
+    <center style="margin-top:40px">
       <a href="#team"><img class="emoji" src="assets/images/angle-double-down-solid.svg" width="20px" style="margin-bottom:60px;"></a>
     </center>
 
