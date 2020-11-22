@@ -205,11 +205,11 @@ body {
 }
 
 .feature-display-mid {
-    transition-delay: 0.15s;
+    transition-delay: 0.1s;
 }
 
 .feature-display-last {
-    transition-delay: 0.30s;
+    transition-delay: 0.20s;
 }
 
 .feature-icon {
