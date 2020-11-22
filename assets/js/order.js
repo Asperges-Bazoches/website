@@ -4,10 +4,10 @@ var aspv = document.getElementById("aspv")
 var fraise = document.getElementById("fraise")
 
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-aspb.value = urlParams.get("aspb");
-aspv.value = urlParams.get("aspv");
-fraise.value = urlParams.get("fraise");
+const urlParamsPanier = new URLSearchParams(queryString);
+aspb.value = urlParamsPanier.get("aspb");
+aspv.value = urlParamsPanier.get("aspv");
+fraise.value = urlParamsPanier.get("fraise");
 
 computeBill = function(){
   let price
@@ -60,3 +60,36 @@ changeHorseSize = function(){
   }
 }
 document.getElementById("left-horse").addEventListener('click', changeHorseSize)
+
+
+// MAKE QUERY TO ADD COMMAND
+const validateForm = function(){
+  if(true){
+    addCommand();
+  }
+};
+
+const callbackQuery = function(data,status){
+  //"success", "notmodified", "error", "timeout", or "parsererror"
+  if(status == "success"){
+    window.location.replace(data["redirect"]);
+  }
+}
+
+const addCommand = function(){
+  body = { name: document.getElementById("name").value,
+           email: document.getElementById("email").value,
+           phone: document.getElementById("phone").value,
+           aspb: document.getElementById("aspb").value,
+           aspv: document.getElementById("aspv").value,
+           fraise: document.getElementById("fraise").value,
+           date: document.getElementById("date").value,
+           hour: document.getElementById("hour").value,
+           place: document.getElementById("place").value,
+           ghost: document.getElementById("ghooost").value,
+           more: document.getElementById("more").value
+          }
+  $.post("https://api.champ-ramard.fr/order.php", body, callbackQuery)
+}
+
+document.getElementById("submit").onclick = validateForm;
