@@ -499,14 +499,8 @@ ul {
     margin-top: -5px;
 }
 
-.social-links {
-    float: none;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.social-link {
-    margin-right: 15px;
+.admin-section {
+    text-align: right;
 }
 
 .strips {
