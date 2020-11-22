@@ -52,10 +52,17 @@ window.onclick = function(event) {
 // check in query params
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-aspb = urlParams.get("aspb");
-if(aspb != null){
-  for(info of ["aspb", "aspv", "fraise", "date", "hour", "place"]){
-    document.getElementById("res-"+info).innerText = urlParams.get(info);
-  }
-  openModal(modal_ty)
+idCmd = urlParams.get("id-cmd");
+if(idCmd != null){
+  // make query
+  const urlCmd = "https://api.champ-ramard.fr/cmd.php?id_cmd="+idCmd;
+  $.get(urlCmd, function(result){
+    console.log(result)
+    for(info of ["aspb", "aspv", "fraise", "day", "hour", "place"]){
+      document.getElementById("res-"+info).innerText = result[info];
+    }
+    // TODO : If urlParams.get("ty") == True
+    // Adapt text conditioning to ty and status
+    openModal(modal_ty)
+  });
 }
