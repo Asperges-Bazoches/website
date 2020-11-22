@@ -52,10 +52,10 @@ changeHorseSize = function(){
   cnt += 1
   document.getElementById("left-horse").style = "width:"+sizes[cnt%sizes.length]+";"
   if (sizes[cnt%sizes.length] === "60px") {
-    document.getElementById("submit").style = "display:block;"
+    document.getElementById("submit").style = "display:block; max-width:200px;"
     document.getElementById("ghooost").value = "e8fe4zr"
   } else {
-    document.getElementById("submit").style = "display:none;"
+    document.getElementById("submit").style = "display:none; max-width:200px;"
     document.getElementById("ghooost").value = ""
   }
 }
