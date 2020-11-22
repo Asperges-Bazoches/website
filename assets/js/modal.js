@@ -58,7 +58,22 @@ if(idCmd != null){
   const urlCmd = "https://api.champ-ramard.fr/cmd.php?id_cmd="+idCmd;
   $.get(urlCmd, function(result){
     console.log(result)
-    for(info of ["aspb", "aspv", "fraise", "day", "hour", "place"]){
+    if(urlParams.get("ty") !== null){
+      document.getElementById("res-hello").innerText = "";
+      document.getElementById("res-title").innerText = "Merci pour votre commande";
+      document.getElementById("res-msg").innerText = result["name"] + ", votre commande a bien été enregistrée. Vous allez recevoir un premier mail récapitulatif, puis un second validant ou invalidant la commande. Si votre commande est invalidée, nous vous rappelerons rapidement afin de convenir d'un nouvel horaire. Veillez à garder un oeil sur les courriers indésirables (ou spams), il est possible que votre service de mail bloque le mail.";
+    } else {
+      document.getElementById("res-hello").innerText = "Bonjour " + result["name"] + ",";
+      document.getElementById("res-title").innerText = "Détails de votre commande";
+      if(result["status"] == "ACCEPTEE"){
+        document.getElementById("res-sts").innerText = "Votre commande a été acceptée. Rendez-vous le " + result["day"] + ", " + result["hour"] + " à "+ result["place"];
+      }else if(result["status"] == "REFUSEE"){
+        document.getElementById("res-sts").innerText = "Votre commande a été refusée. Nous avons sûrement trop de commandes ou nous ne sommes pas disponible à cette date. Nous vous appelerons prochainement (si ce n'est pas déjà fait ;-) )";
+      } else {
+        document.getElementById("res-sts").innerText = "Votre commande pour le  " + result["day"] + ", " + result["hour"] + " à "+ result["place"] + " est en cours de validation.";
+      }
+    }
+    for(info of ["aspb", "aspv", "fraise"]){
       document.getElementById("res-"+info).innerText = result[info];
     }
     // TODO : If urlParams.get("ty") == True
