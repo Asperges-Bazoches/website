@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
 
+input, select, textarea {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+input:focus {
+  background-color: #EEEEEE;
+  border-color: #aaa;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #F8F9F9;
