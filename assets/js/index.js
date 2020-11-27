@@ -76,3 +76,21 @@ const urlParams = new URLSearchParams(window.location.search);
 idCmd = urlParams.get("id-cmd");
 retrieveOrderInfo(idCmd);
 document.getElementById("btn-id-cmd").onclick = function(){retrieveOrderInfo(document.getElementById("id-cmd").value)};
+
+for (ipt of ["aspb", "aspv", "fraise"]){
+  document.getElementById(ipt).addEventListener('change', () => {
+    var sum = 0
+    for (ipt of ["aspb", "aspv", "fraise"]){
+      document.getElementById(ipt).value = Number(document.getElementById(ipt).value);
+      sum = sum + Number(document.getElementById(ipt).value);
+    }
+    if(sum > 0){
+      document.getElementById("consigne-order").style = "display:none;"
+      document.getElementById("continue-order").style = "display:block;"
+      document.getElementById("continue-order").innerHTML = "<h5>Poursuivre la commande ("+sum*8+"€)</h5>"
+    }else{
+      document.getElementById("consigne-order").style = "display:block;"
+      document.getElementById("continue-order").style = "display:none;"
+    }
+  });
+}

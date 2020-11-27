@@ -126,7 +126,7 @@
 <!-- Pricing
   ================================================== -->
 <div id="order" class="pricing-background">
-
+  <form>
   <div style="margin-bottom: 80px"><center>
 
     <div class="pricing-table row">
@@ -166,25 +166,25 @@
     <div class="row" style="margin: 10px">
       <div class="col-sm-3"  style="margin-bottom: 30px">
         <label for="name">Prénom Nom</label><br/>
-        <input type="text" id="name" name="name"><br/><br/>
+        <input type="text" id="name" name="name" required><br/><br/>
         <label for="email">Adresse email</label><br/>
-        <input type="email" id="email" name="email" placeholder="exemple@protonmail.com"><br/><br/>
+        <input type="email" id="email" name="email" placeholder="exemple@protonmail.com" required><br/><br/>
         <label for="phone">Téléphone</label><br/>
-        <input type="tel" id="phone" name="phone" placeholder="0160670000"><br/><br/>
+        <input type="tel" id="phone" name="phone" placeholder="0160670000" required><br/><br/>
       </div>
       <div class="col-sm-3" style="margin-bottom: 30px">
         <label for="place">Point de vente </label><a id="btn-timetable"> (Notre planning)</a><br/>
-        <select name="place" id="place">
+        <select name="place" id="place" required>
           <option value="Bazoches-Lès-Bray">Bazoches-Lès-Bray (Tous les jours)</option>
         </select><br/><br/>
         <label for="date">Date</label><br/>
-        <input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01"><br/><br/>
+        <input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01" required><br/><br/>
         <label for="hour">Créneau</label><br/>
-        <select name="hour" id="hour">
+        <select name="hour" id="hour" required>
           <option value="matin">Matin</option>
           <option value="après-Midi">Après-midi</option>
         </select><br><br>
-        <input type="text" id="ghooost" value="" style="display:none">
+        <input type="text" id="ghooost" value="" style="display:none" required>
       </div>
       <div class="col-sm-6" style="margin-bottom: 30px">
         <label for="more">Commentaire</label><br/>
@@ -203,9 +203,10 @@
      <p>(Anti-robot) Cliquez sur le cheval de gauche jusqu'à ce que les deux soient de la même taille</p>
      <img id="left-horse" src="assets/images/horse-solid.svg" style="width:30px;">
      <img src="assets/images/horse-solid.svg" width="60px"></br></br>
-     <input type="submit" id="submit" value="Valider la commande" formaction="https://api.champ-ramard.fr/order.php" formmethod="POST" style="display:none; max-width:200px;">
+     <input type="submit" id="submit" value="Valider la commande" style="display:none; max-width:200px;">
 
  <center></div>
+</form>
 
 </div><!--pricing-background-->
 

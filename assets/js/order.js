@@ -1,23 +1,30 @@
 // PRICE COMPUTATION
-var aspb = document.getElementById("aspb")
-var aspv = document.getElementById("aspv")
-var fraise = document.getElementById("fraise")
-
 const queryString = window.location.search;
 const urlParamsPanier = new URLSearchParams(queryString);
-aspb.value = urlParamsPanier.get("aspb");
-aspv.value = urlParamsPanier.get("aspv");
-fraise.value = urlParamsPanier.get("fraise");
+for(ipt of ["aspb", "aspv", "fraise"]){
+  if(urlParamsPanier.get(ipt)){
+    document.getElementById(ipt).value = urlParamsPanier.get(ipt);
+  } else {
+    document.getElementById(ipt).value = 0
+  }
+  document.getElementById(ipt).addEventListener('change', () => {
+    for (ipt of ["aspb", "aspv", "fraise"]){
+      document.getElementById(ipt).value = Number(document.getElementById(ipt).value);
+      sum = sum + document.getElementById(ipt).value;
+    }
+  });
+}
 
+var price = 0;
 computeBill = function(){
-  let price
-  price =  aspb.value*8
-  price += aspv.value*8
-  price += fraise.value*8
+  price = 0;
+  for(ipt of ["aspb", "aspv", "fraise"]){
+    price += document.getElementById(ipt).value*8
+  }
   document.getElementById("price").innerText = price
 }
-for (elem of [aspb, aspv, fraise]) {
-  elem.addEventListener('change', computeBill)
+for (elem of ["aspb", "aspv", "fraise"]) {
+  document.getElementById(elem).addEventListener('change', computeBill)
 }
 computeBill()
 
@@ -64,7 +71,11 @@ document.getElementById("left-horse").addEventListener('click', changeHorseSize)
 
 // MAKE QUERY TO ADD COMMAND
 const validateForm = function(){
-  if(true){
+  ok = true;
+  ok = ok && (document.getElementById("name").value.length > 0);
+  ok = ok && (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(document.getElementById("email").value));
+  ok = ok && (document.getElementById("phone").value.length > 10);
+  if(ok){
     addCommand();
   }
 };
