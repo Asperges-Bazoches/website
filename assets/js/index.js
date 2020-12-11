@@ -96,5 +96,5 @@ for (ipt of ["aspb", "aspv", "fraise"]){
 
 if(urlParams.get("error")!=null){
   document.getElementsByClassName("header-headline bold")[0].innerText = "Une erreur s'est produite";
-  document.getElementsByClassName("header-running-text")[0].innerText = "La page que vous souhaitiez consulter d'existe peut-être pas (ou plus)...";
+  document.getElementsByClassName("header-running-text")[0].innerText = "La page que vous souhaitiez consulter n'existe peut-être pas (ou plus)...";
 };
