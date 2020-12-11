@@ -79,15 +79,14 @@ document.getElementById("btn-id-cmd").onclick = function(){retrieveOrderInfo(doc
 
 for (ipt of ["aspb", "aspv", "fraise"]){
   document.getElementById(ipt).addEventListener('change', () => {
-    var sum = 0
-    for (ipt of ["aspb", "aspv", "fraise"]){
-      document.getElementById(ipt).value = Number(document.getElementById(ipt).value);
-      sum = sum + Number(document.getElementById(ipt).value);
-    }
-    if(sum > 0){
+    var price = 0;
+    price += document.getElementById("aspb").value*8;
+    price += document.getElementById("aspv").value*8;
+    price += document.getElementById("fraise").value*3;
+    if(price > 0){
       document.getElementById("consigne-order").style = "display:none;"
       document.getElementById("continue-order").style = "display:block;"
-      document.getElementById("continue-order").innerHTML = "<h5>Poursuivre la commande ("+sum*8+"€)</h5>"
+      document.getElementById("continue-order").innerHTML = "<h5>Poursuivre la commande ("+price+"€)</h5>"
     }else{
       document.getElementById("consigne-order").style = "display:block;"
       document.getElementById("continue-order").style = "display:none;"

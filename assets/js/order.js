@@ -31,7 +31,9 @@ $(document).on("keypress", 'form', function (e) {
 var price = 0;
 computeBill = function(){
   price = 0;
-  for(ipt of ["aspb", "aspv", "fraise"]){price += document.getElementById(ipt).value*8;}
+  price += document.getElementById("aspb").value*8;
+  price += document.getElementById("aspv").value*8;
+  price += document.getElementById("fraise").value*3;
   document.getElementById("price").innerText = price
 }
 const urlParamsPanier = new URLSearchParams(window.location.search);
@@ -77,8 +79,10 @@ document.getElementById("order-form").onsubmit = function(event){
            };
     $.post("https://api.champ-ramard.fr/order.php", body, function(data,status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
-      if(status == "success"){
+      if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
+      }else{
+        console.log(stringify(data))
       }
     });
   }
