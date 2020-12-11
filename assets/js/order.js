@@ -38,6 +38,7 @@ computeBill = function(){
 }
 const urlParamsPanier = new URLSearchParams(window.location.search);
 for(ipt of ["aspb", "aspv", "fraise"]){
+  document.getElementById("prev-"+ipt).innerText = ((urlParamsPanier.get(ipt)) ? urlParamsPanier.get(ipt) : 0);
   document.getElementById(ipt).value = ((urlParamsPanier.get(ipt)) ? urlParamsPanier.get(ipt) : 0);
   document.getElementById(ipt).addEventListener('change', () => {
     computeBill()
@@ -45,6 +46,14 @@ for(ipt of ["aspb", "aspv", "fraise"]){
   });
 }
 computeBill()
+document.getElementById("prev-fraise").innerText = document.getElementById("prev-fraise").innerText*250;
+
+
+// BASKET EDITION
+document.getElementById("edit-basket").onclick = function(){
+  document.getElementById("basket-edition").style.display = "block";
+  document.getElementById("basket-summary").style.display = "none";
+}
 
 
 // DUMMY ANTI ROBOT TRICK #2

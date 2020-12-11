@@ -318,6 +318,25 @@ body {
     border-radius: 7px;
 }
 
+.box {
+    text-align: center;
+    min-width: 300px;
+    width: 50%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    height: 400px;
+    padding: 15px;
+    position: relative;
+    box-shadow: 5px 8.7px 40px rgba(99, 117, 138, 0.3);
+    border-radius: 7px;
+}
+
+.box > hr {
+  margin : 3px;
+}
+
 ul {
     list-style-type: none;
 }

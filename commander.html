@@ -129,7 +129,26 @@
   <form id="order-form">
   <div style="margin-bottom: 80px"><center>
 
-    <div class="pricing-table row">
+    <div id="basket-summary" class="box">
+      <h3>Mon panier <a id="edit-basket">(Modifier)</a></h3>
+      <br/>
+      <p class="plan-title light">
+        ASPERGES BLANCHES<br/>
+        <img class="emoji" src="assets/images/logo.svg" width="40px" />
+        <span id="prev-aspb">0</span>KG</p>
+      <hr/>
+      <p class="plan-title light">
+        ASPERGES VERTES<br/>
+        <img class="emoji" src="assets/images/logo.svg" width="40px" />
+        <span id="prev-aspv">0</span>KG</p>
+      <hr/>
+      <p class="plan-title light">
+        FRAISES<br/>
+        <img class="emoji" src="assets/images/strawberry.svg" width="40px" />
+        <span id="prev-fraise">0</span>G</p>
+    </div>
+
+    <div id="basket-edition" class="pricing-table row" style="display:none;">
       <div class="col-sm-4">
         <div class="mid-plan" style="height:300px">
           <h3 class="plan-title light">ASPERGES BLANCHES</h3>
