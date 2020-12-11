@@ -82,7 +82,10 @@ document.getElementById("order-form").onsubmit = function(event){
       if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
       }else{
-        console.log(stringify(data))
+        document.getElementById("coffees").style.display = "none";
+        document.getElementById("instruction").innerText = "Au moins une des informations que vous avez renseignées a été jugée illicite. Cela peut provenir de la présence de caractères spéciaux. Si le problème persiste, n'hésitez pas à passer la commande par téléphone au 0160671423.";
+        document.getElementById("submit").style["border-color"] = "red";
+        //console.log(JSON.stringify(data))
       }
     });
   }
