@@ -29,11 +29,14 @@ $(document).on("keypress", 'form', function (e) {
 
 // PRICE COMPUTATION
 var price = 0;
+const unit_price = {
+  "aspb" : 8,
+  "aspv" : 8,
+  "fraise" : 3
+}
 computeBill = function(){
   price = 0;
-  price += document.getElementById("aspb").value*8;
-  price += document.getElementById("aspv").value*8;
-  price += document.getElementById("fraise").value*3;
+  for(ipt of ["aspb", "aspv", "fraise"]){price += document.getElementById(ipt).value*unit_price[ipt];}
   document.getElementById("price").innerText = price
 }
 const urlParamsPanier = new URLSearchParams(window.location.search);
