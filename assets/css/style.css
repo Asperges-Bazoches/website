@@ -16,6 +16,7 @@ input:focus {
 }
 
 body {
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #F8F9F9;
 }
