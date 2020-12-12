@@ -45,41 +45,7 @@
 
 </head>
 
-<body onload="//openModal(modal);">
-
-<!-- Credits -->
-<div id="credits" class="modal">
-  <!-- Modal content -->
- <div class="modal-content">
-   <div class="modal-header">
-     <span class="close" id="close-credit">&times;</span>
-   </div>
-   <div class="modal-body">
-     <h4>Confidentialité</h4>
-     <p>Ce site ne contient aucun traqueur et respecte votre vie privée à 100%. Son code source est public et <a href="https://github.com/Asperges-Bazoches/asperges-bazoches.github.io">retrouvable sur Github.</a></p><br/>
-
-     <div class="row" style="margin-bottom:50px">
-       <div class="col-sm-8">
-         <h3>Crédits</h3>
-         <p>Depuis un modèle libre de <a href="https://webscopeapp.com">Webscope</a></p>
-         <p>Avec des icones libres de <a href="https://fontawesome.com/license">Front Awesome</a></p>
-         <p>Avec une image libre de <a href="https://fr.freepik.com">Freepik</a></p>
-         <p>Merci à l'association française <a href="https://framasoft.org">Framasoft</a> pour leurs services en ligne libres, gratuits, sans publicité et respectueux de nos données (notamment <a href="https://framaforms.org">Framaforms</a> utilisé pour les formulaires en ligne)</p>
-       </div>
-       <div class="col-sm-4">
-         <center>
-           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Framasoft_Logo.svg/1200px-Framasoft_Logo.svg.png" width="200px">
-         </center>
-       </div>
-     </div>
-   </div>
-   <!-- <div class="modal-footer">
-   </div> -->
- </div>
-</div>
-
-<!-- delivery
-  ================================================== -->
+<body>
 
 <div id="delivery" class="delivery-section">
 
@@ -92,7 +58,7 @@
           <img class="feature-img" src="assets/images/cash-register-solid.svg" style="max-width: 25px;width: 35px;">
         </div>
         <h5 class="feature-head-text feature-display"> Remplissez le formulaire </h5>
-        <p class="feature-subtext light feature-display"> Le mail et le téléphone sont obligatoires pour le bon déroulement de la commande. </p>
+        <p class="feature-subtext light feature-display"> Le mail et le téléphone sont obligatoires pour le bon déroulement de la commande. Nous y prendrons soin. <a class="open-credits"/> Retrouvez notre politique de confidentialité</a>.</p>
       </div>
 
       <div class="col-sm-3 feature">
@@ -118,7 +84,6 @@
         <h5 class="feature-head-text feature-display feature-display-last"> Récupérez votre dû  </h5>
         <p class="feature-subtext light feature-display feature-display-last"> Pas de paiement en ligne disponible. Payez directement votre commande sur place.</p>
       </div>
-
     </div>
 
 </div>
@@ -195,7 +160,7 @@
         <input type="tel" id="phone" name="phone" placeholder="0160670000" required><br/><br/>
       </div>
       <div class="col-sm-3" style="margin-bottom: 30px">
-        <label for="place">Point de vente </label><a id="btn-timetable"> (Notre planning)</a><br/>
+        <label for="place">Point de vente </label><a class="open-timetable"> (Notre planning)</a><br/>
         <select name="place" id="place" required>
           <option value="Bazoches-Lès-Bray">Bazoches-Lès-Bray (Tous les jours)</option>
         </select><br/><br/>
@@ -229,11 +194,23 @@
 
 </div><!--pricing-background-->
 
+<div id="credits" class="modal">
+ <div class="modal-content">
+   <div class="modal-header">
+     <span class="close">&times;</span>
+   </div>
+   <div class="modal-body">
+     <iframe src="assets/modal/privacy.html" width="100%" height="100%" style="border: 0px solid black;"></iframe>
+   </div>
+ </div>
+</div>
+
+
 <div id="timetableModal" class="modal">
   <!-- Modal content -->
  <div class="modal-content">
    <div class="modal-header">
-     <span id="close-ttable" class="close">&times;</span>
+     <span class="close">&times;</span>
      <h4>Retrouvez nous dans le sud Seine-et-Marne</h4>
    </div>
    <div class="modal-body">
@@ -250,7 +227,7 @@
         <div class="row">
 
             <div class="col-sm-3">
-              <span class="webscope-text"><a id="open-credits" style="color:white">Crédits et confidentialité</a></span>
+              <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span>
             </div>
 
             <div class="col-sm-6 webscope">

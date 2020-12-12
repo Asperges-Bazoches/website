@@ -1,22 +1,3 @@
-// MODALS
-var link_credit = document.getElementById("open-credits");
-var modal_credit = document.getElementById("credits");
-var span_credit = document.getElementById("close-credit");
-var link_ttable = document.getElementById("btn-timetable");
-var modal_ttable = document.getElementById("timetableModal");
-var span_ttable = document.getElementById("close-ttable");
-// setup actions
-link_ttable.onclick = function(){openModal(modal_ttable)}
-link_credit.onclick = function(){openModal(modal_credit)}
-span_ttable.onclick = function(){closeModal(modal_ttable)}
-span_credit.onclick = function(){closeModal(modal_credit)}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal_ttable || event.target == modal_credit) {
-    closeModal(event.target)
-  }
-}
-
 // DISABLE FORM SUBMIT BY PRESSING ENTER
 $(document).on("keypress", 'form', function (e) {
     var code = e.keyCode || e.which;

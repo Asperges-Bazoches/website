@@ -337,10 +337,6 @@ body {
   margin : 3px;
 }
 
-ul {
-    list-style-type: none;
-}
-
 .plan li {
     position: relative;
 }
