@@ -533,6 +533,7 @@ body {
 
 /* Modal Body */
 .modal-body {
+  overflow-y: scroll;
   padding: 2px 16px;
   min-height: 100px
 }
