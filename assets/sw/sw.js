@@ -1,4 +1,4 @@
-var cacheName = 'ChampRamard-v1';
+var cacheName = 'ChampRamard-v1.1';
 var appShellFiles = [
   'index.html',
   'timetable.html',
