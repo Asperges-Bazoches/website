@@ -1,5 +1,16 @@
 /* Small Devices, Tablets */
 
+@media (max-width:768px) {
+  .fab-container {
+    display:block;
+    position: fixed;
+    bottom: 50px;
+    right: 40px;
+    z-index: 999;
+    cursor: pointer;
+  }
+}
+
 @media only screen and (min-width: 768px) {
 
     .header-right {

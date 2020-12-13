@@ -1,4 +1,4 @@
-var cacheName = 'ChampRamard-v1.1';
+var cacheName = 'ChampRamard-v1.2';
 var appShellFiles = [
   'index.html',
   'timetable.html',
@@ -20,6 +20,7 @@ var appShellFiles = [
   'assets/images/cash-register-solid.svg',
   'assets/images/envelope-solid.svg',
   'assets/images/facebook.svg',
+  'assets/images/laugh-wink-regular.svg',
   'assets/images/logo.svg',
   'assets/images/strawberry.svg',
   'assets/images/users-solid.svg',
