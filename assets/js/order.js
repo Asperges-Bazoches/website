@@ -8,6 +8,29 @@ $(document).on("keypress", 'form', function (e) {
 });
 
 
+// READAPT DATE
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+min = new Date();
+max = new Date();
+max.setMonth(max.getMonth()+1);
+document.getElementById("date").min = min;
+document.getElementById("date").max = max;
+document.getElementById("date").value = formatDate(min);
+
+
 // PRICE COMPUTATION
 var price = 0;
 const unit_price = {
