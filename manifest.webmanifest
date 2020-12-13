@@ -21,5 +21,6 @@
   ],
   "name" : "Les asperges de Bazoches-Lès-Bray",
   "short_name" : "ChampRamard",
-  "start_url" : "/index.html"
+  "start_url" : "/index.html",
+  "prefer_related_applications": false
 }
