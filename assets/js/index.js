@@ -12,10 +12,15 @@ const retrieveOrderInfo = function(idCmd){
         } else {
           document.getElementById("res-hello").innerText = "Bonjour " + result["name"] + ",";
           document.getElementById("res-title").innerText = "Détails de votre commande";
-          if(result["status"] == "ACCEPTEE"){
+          if(result["status"] == "ACCEPTéE"){
             document.getElementById("res-sts").innerText = "Votre commande a été acceptée. Rendez-vous le " + result["day"] + ", " + result["hour"] + " à "+ result["place"];
-          }else if(result["status"] == "REFUSEE"){
+          }else if(result["status"] == "REFUSéE"){
             document.getElementById("res-sts").innerText = "Votre commande a été refusée. Nous avons sûrement trop de commandes ou nous ne sommes pas disponible à cette date. Nous vous appelerons prochainement (si ce n'est pas déjà fait ;-) )";
+          }else if(result["status"] == "ARCHIVED"){
+            document.getElementById("res-title").innerText = "Commande archivée";
+            document.getElementById("res-panier").style = "display:none;";
+            document.getElementById("res-sts").innerText = "Votre commande a été archivée et fait partie du passé à présent. Vos informations personnelles seront anonymisées sous peu, en cohérence avec notre politique de confidentialité (disponible en bas à gauche de votre écran).";
+
           } else {
             document.getElementById("res-sts").innerText = "Votre commande pour le  " + result["day"] + ", " + result["hour"] + " à "+ result["place"] + " est en cours de validation.";
           }
