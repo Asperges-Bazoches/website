@@ -165,9 +165,8 @@
           <h4 class="plan-cost bold">8</h4>
           <h5 class="monthly">le kilo</h5>
           <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0" style="width:50%">
-          <span>portions</span>
-          <br>
-          <!--<b>Non disponible</b>-->
+          <span id='aspb-unit'>portions</span>
+          <b id='no-aspb' style="display:none">Non disponible</b>
         </div><!--pro-plan--->
       </div><!--col-->
 
@@ -180,8 +179,8 @@
               <h4 class="plan-cost bold">8</h4>
               <h5 class="monthly">le kilo</h5>
               <input type="number" id="aspv" name="aspv" min="0" max="0" step="1" value="0" style="width:50%">
-              <span>portions</span><br>
-              <b style="display:none">Non disponible</b>
+              <span id='aspv-unit'>portions</span>
+              <b id='no-aspv' style="display:none">Non disponible</b>
           </div><!--basic-plan--->
       </div><!--col-->
 
@@ -195,9 +194,9 @@
               <h4 class="plan-cost bold">3</h4>
               <h5 class="monthly">les 250g</h5>
               <input type="number" id="fraise" name="fraise" min="0" max="0" step="1" value="0" style="width:50%">
-              <span>portions</span>
+              <span id='fraise-unit'>portions</span>
               </p>
-              <b style="display:none">Non disponible</b>
+              <b id='no-fraise' style="display:none">Non disponible</b>
           </div><!--basic-plan--->
       </div><!--col-->
         <center>
@@ -368,6 +367,14 @@
   if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
   };
+
+  const availability = {'aspb' : true, 'aspv' : false, 'fraise' : false}
+  for (item in availability) {
+    document.getElementById(item).style.display = availability[item] ? "" : "none";
+    document.getElementById(item+'-unit').style.display = availability[item] ? "" : "none";
+    document.getElementById('no-'+item).style.display = availability[item] ? "none" : "block";
+  }
+
 </script>
 
 </body>

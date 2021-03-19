@@ -116,7 +116,8 @@
           <h4 class="plan-cost bold">8</h4>
           <h5 class="monthly">le kilo</h5>
           <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0" style="width:50%">
-          <span>portion(s)</span>
+          <span id='aspb-unit'>portion(s)</span>
+          <b id='no-aspb' style="display:none">Non disponible</b>
           <br>
         </div><!--pro-plan--->
       </div><!--col-->
@@ -127,7 +128,8 @@
             <h4 class="plan-cost bold">8</h4>
             <h5 class="monthly">le kilo</h5>
             <input type="number" id="aspv" name="aspv" min="0" max="0" step="1" value="0" style="width:50%">
-            <span>portion(s)</span>
+            <span id='aspv-unit'>portion(s)</span>
+            <b id='no-aspv' style="display:none">Non disponible</b>
             <br>
           </div><!--basic-plan--->
       </div><!--col-->
@@ -139,7 +141,8 @@
             <h4 class="plan-cost bold">3</h4>
             <h5 class="monthly">les 250g</h5>
             <input type="number" id="fraise" name="fraise" min="0" max="0" step="1" value="0" style="width:50%">
-            <span>portion(s)</span>
+            <span id='fraise-unit'>portion(s)</span>
+            <b id='no-fraise' style="display:none">Non disponible</b>
             <br>
           </div><!--basic-plan--->
       </div><!--col-->
@@ -268,7 +271,14 @@
 <script src="assets/js/script.js"></script>
 <script src="assets/js/modal.js"></script>
 <script src="assets/js/order.js"></script>
-
+<script>
+  const availability = {'aspb' : true, 'aspv' : false, 'fraise' : false}
+  for (item in availability) {
+    document.getElementById(item).style.display = availability[item] ? "" : "none";
+    document.getElementById(item+'-unit').style.display = availability[item] ? "" : "none";
+    document.getElementById('no-'+item).style.display = availability[item] ? "none" : "block";
+  }
+</script>
 </body>
 
 </html>
