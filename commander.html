@@ -271,14 +271,7 @@
 <script src="assets/js/script.js"></script>
 <script src="assets/js/modal.js"></script>
 <script src="assets/js/order.js"></script>
-<script>
-  const availability = {'aspb' : true, 'aspv' : false, 'fraise' : false}
-  for (item in availability) {
-    document.getElementById(item).style.display = availability[item] ? "" : "none";
-    document.getElementById(item+'-unit').style.display = availability[item] ? "" : "none";
-    document.getElementById('no-'+item).style.display = availability[item] ? "none" : "block";
-  }
-</script>
+<script src="assets/js/availability.js"></script>
 </body>
 
 </html>
