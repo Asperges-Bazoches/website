@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://asperges-bazoches.github.io/sitemap.xml
+Sitemap: https://champ-ramard.fr/sitemap.xml

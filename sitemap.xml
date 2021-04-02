@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://asperges-bazoches.github.io/</loc>
-      <lastmod>2020-04-24T19:50:10+00:00</lastmod>
+      <loc>https://champ-ramard.fr/</loc>
+      <lastmod>2021-04-24T19:50:10+00:00</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
-      <loc>https://framaforms.org/commandez-des-asperges-bazochoises-1585502490</loc>
-      <lastmod>2020-04-24T19:50:10+00:00</lastmod>
+      <loc>https://champ-ramard.fr/commander.html</loc>
+      <lastmod>2021-04-24T19:50:10+00:00</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
    </url>
