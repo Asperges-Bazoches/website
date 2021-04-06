@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body onload='openModal(modal_warn)'>
 
 <!-- Navigation
     ================================================== -->
@@ -332,6 +332,30 @@
        <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
      </ul>
      <p>Merci encore et à très bientôt !</p>
+   </div>
+</div>
+</div>
+
+<div id="warningModal" class="modal">
+  <!-- Modal content -->
+ <div class="modal-content">
+   <div class="modal-header">
+     <span class="close">&times;</span>
+     <h2><img src='assets/images/walking-solid.svg' width='30px'/><img src='assets/images/logo.svg' width='30px' style='filter: grayscale(100%);'/> Nous livrons !</h2>
+   </div>
+   <div class="modal-body">
+     <div class="row" style='margin-top:20px;'>
+       <div class="col-sm-7">
+         <p>Bonjour à toutes et à tous,</p>
+         <p>Compte-tenu du contexte, nous reprenons les livraisons dans le sud Seine-et-Marne si vous habitez à plus de 10km de Bazoches-Lès-Bray (77).</p>
+         <p>Pour demander une livraison, merci de sélectionner l'option correspondante dans le champ "Point de vente" du formulaire, tout en précisant dans les commentaires votre ville de résidence.</p>
+         <p>Nous ferons notre maximum pour vous livrer dans les meilleurs délais tout en regroupant, pour plus d'efficacité, les commandes par secteur. Nous vous tiendrons au courant d'un lieu et d'une heure de livraison. </p><br/>
+         <p>Merci encore et à très bientôt !</p>
+       </div>
+       <div class="col-sm-5">
+         <center><img src='assets/images/pixabay-drone.jpg' width='400px' max-width="75%"/></center>
+       </div>
+      </div>
    </div>
 </div>
 </div>

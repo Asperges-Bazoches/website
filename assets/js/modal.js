@@ -15,6 +15,7 @@ function closeModal(one_modal) {
 var active_modal = null;
 
 var modal = document.getElementById("myModal");
+var modal_warn = document.getElementById("warningModal");
 var modal_credit = document.getElementById("credits");
 var modal_ty = document.getElementById("tyModal");
 var modal_ttable = document.getElementById("timetableModal");
