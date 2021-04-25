@@ -178,7 +178,7 @@
               <h3 class="plan-title light">ASPERGES VERTES</h3>
               <h4 class="plan-cost bold">8</h4>
               <h5 class="monthly">le kilo</h5>
-              <input type="number" id="aspv" name="aspv" min="0" max="0" step="1" value="0" style="width:50%">
+              <input type="number" id="aspv" name="aspv" min="0" max="50" step="1" value="0" style="width:50%">
               <span id='aspv-unit'>portions</span>
               <b id='no-aspv' style="display:none">Non disponible</b>
           </div><!--basic-plan--->
@@ -193,7 +193,7 @@
               <h3 class="plan-title light">FRAISES</h3>
               <h4 class="plan-cost bold">3</h4>
               <h5 class="monthly">les 250g</h5>
-              <input type="number" id="fraise" name="fraise" min="0" max="0" step="1" value="0" style="width:50%">
+              <input type="number" id="fraise" name="fraise" min="0" max="50" step="1" value="0" style="width:50%">
               <span id='fraise-unit'>portions</span>
               </p>
               <b id='no-fraise' style="display:none">Non disponible</b>
@@ -392,9 +392,9 @@
   if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
   };
-    
+
  if(idCmd == null){
-    openModal(modal_warn) 
+    openModal(modal_warn)
  }
 </script>
 </body>
