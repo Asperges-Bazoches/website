@@ -48,7 +48,7 @@ for (ipt of ["aspb", "aspv", "fraise"]){
     var price = 0;
     price += document.getElementById("aspb").value*8;
     price += document.getElementById("aspv").value*8;
-    price += document.getElementById("fraise").value*3;
+    price += document.getElementById("fraise").value*3.5;
     for (ipt of ["aspb", "aspv", "fraise"]){document.getElementById(ipt).value = Number(document.getElementById(ipt).value);}
     if(price > 0){
       document.getElementById("consigne-order").style = "display:none;"

@@ -36,7 +36,7 @@ var price = 0;
 const unit_price = {
   "aspb" : 8,
   "aspv" : 8,
-  "fraise" : 3
+  "fraise" : 3.5
 }
 computeBill = function(){
   price = 0;
