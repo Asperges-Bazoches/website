@@ -7,7 +7,7 @@ function updateAvailability(){
   }
 }
 
-$.get("https://api.champ-ramard.fr/settings.php", function(result){
+$.get("https://api.champ-ramard.fr/v2/public/settings.php", function(result){
   for(var k in result) {
     if(result[k]['STR_KEY']=='aspb' | result[k]['STR_KEY']=='aspv' | result[k]['STR_KEY']=='fraise'){
       if(result[k]['STR_VALUE']=='true'){
