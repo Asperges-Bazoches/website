@@ -4,9 +4,9 @@ function updateSettings(){
 
   for (key in settings){
     if (key in ['aspb', 'aspv', 'fraise']) {
-      document.getElementById(item).style.display = settings[key] ? "" : "none";
-      document.getElementById(item+'-unit').style.display = settings[key] ? "" : "none";
-      document.getElementById('no-'+item).style.display = settings[key] ? "none" : "block";
+      document.getElementById(key).style.display = settings[key] ? "" : "none";
+      document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
+      document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
     }
     if (key == 'website_title'){
       document.getElementsByClassName("header-headline")[0].innerText = settings[key];
