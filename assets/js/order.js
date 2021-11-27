@@ -93,7 +93,7 @@ document.getElementById("order-form").onsubmit = function(event){
              ghost: document.getElementById("ghooost").value,
              more: document.getElementById("more").value
            };
-    $.post("https://api.champ-ramard.fr/order.php", body, function(data,status){
+    $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data,status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
       if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
