@@ -3,7 +3,7 @@ var settings = {'aspb' : true, 'aspv' : true, 'fraise' : true};
 function updateSettings(){
 
   for (key in settings){
-    if (key in ['aspb', 'aspv', 'fraise']) {
+    for (key of ['aspb', 'aspv', 'fraise']) {
       document.getElementById(key).style.display = settings[key] ? "" : "none";
       document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
       document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
