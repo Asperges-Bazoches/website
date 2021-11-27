@@ -56,6 +56,16 @@ computeBill()
 document.getElementById("prev-fraise").innerText = document.getElementById("prev-fraise").innerText*250;
 
 
+// TRY PREFILL FIELD
+for(let field of ["name", "email", "phone"]){
+    if(localStorage.getItem("order-"+field) != undefined){
+      document.getElementById(field).value = localStorage.getItem("order-"+field)
+    }
+    document.getElementById(field).onchange = function(){
+      localStorage.setItem("order-"+field, document.getElementById(field).value)
+    }
+}
+
 // BASKET EDITION
 document.getElementById("edit-basket").onclick = function(){
   document.getElementById("basket-edition").style.display = "block";
