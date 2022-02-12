@@ -46,8 +46,8 @@ document.getElementById("btn-id-cmd").onclick = function(){retrieveOrderInfo(doc
 for (ipt of ["aspb", "aspv", "fraise"]){
   document.getElementById(ipt).addEventListener('change', () => {
     var price = 0;
-    price += document.getElementById("aspb").value*8;
-    price += document.getElementById("aspv").value*8;
+    price += document.getElementById("aspb").value*8.5;
+    price += document.getElementById("aspv").value*8.5;
     price += document.getElementById("fraise").value*3.5;
     for (ipt of ["aspb", "aspv", "fraise"]){document.getElementById(ipt).value = Number(document.getElementById(ipt).value);}
     if(price > 0){

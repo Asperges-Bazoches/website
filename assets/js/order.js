@@ -34,8 +34,8 @@ document.getElementById("date").value = formatDate(min);
 // PRICE COMPUTATION
 var price = 0;
 const unit_price = {
-  "aspb" : 8,
-  "aspv" : 8,
+  "aspb" : 8.5,
+  "aspv" : 8.5,
   "fraise" : 3.5
 }
 computeBill = function(){
