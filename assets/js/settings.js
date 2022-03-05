@@ -1,18 +1,22 @@
-var settings = {'aspb' : true, 'aspv' : true, 'fraise' : true};
+var settings = {
+  'aspb': true, 'aspv': true, 'fraise': true,
+};
 
 function updateSettings(){
-
+  for (key of ['aspb', 'aspv', 'fraise']) {
+    document.getElementById(key).style.display = settings[key] ? "" : "none";
+    document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
+    document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
+  }
   for (key in settings){
-    for (key of ['aspb', 'aspv', 'fraise']) {
-      document.getElementById(key).style.display = settings[key] ? "" : "none";
-      document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
-      document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
-    }
     if (key == 'website_title'){
       document.getElementsByClassName("header-headline")[0].innerText = settings[key];
     }
     if (key == 'website_subtitle'){
       document.getElementsByClassName("header-running-text")[0].innerText = settings[key];
+    }
+    if (key.endsWith('_price')){
+      document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
     }
   }
 }

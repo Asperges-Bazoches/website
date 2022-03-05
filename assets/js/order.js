@@ -34,9 +34,9 @@ document.getElementById("date").value = formatDate(min);
 // PRICE COMPUTATION
 var price = 0;
 const unit_price = {
-  "aspb" : 8.5,
-  "aspv" : 8.5,
-  "fraise" : 3.5
+  "aspb" : parseFloat(settings["aspb_price"]),
+  "aspv" : parseFloat(settings["aspv_price"]),
+  "fraise" : parseFloat(settings["fraise_price"])
 }
 computeBill = function(){
   price = 0;
@@ -103,8 +103,9 @@ document.getElementById("order-form").onsubmit = function(event){
              ghost: document.getElementById("ghooost").value,
              more: document.getElementById("more").value
            };
-    $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data,status){
+    $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data, status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
+      alert(status)
       if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
       }else{
