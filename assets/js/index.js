@@ -38,18 +38,42 @@ const retrieveOrderInfo = function(idCmd){
   }
 };
 
+function updateSettings(){
+  for (key of ['aspb', 'aspv', 'fraise']) {
+    document.getElementById(key).style.display = settings[key] ? "" : "none";
+    document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
+    document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
+  }
+  for (key in settings){
+    if (key == 'website_title'){
+      document.getElementsByClassName("header-headline")[0].innerText = settings[key];
+    }
+    if (key == 'website_subtitle'){
+      document.getElementsByClassName("header-running-text")[0].innerText = settings[key];
+    }
+    if (key.endsWith('_price')){
+      document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
+    }
+  }
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 idCmd = urlParams.get("id-cmd");
 retrieveOrderInfo(idCmd);
-document.getElementById("btn-id-cmd").onclick = function(){retrieveOrderInfo(document.getElementById("id-cmd").value)};
+document.getElementById("btn-id-cmd").onclick = function(){
+  retrieveOrderInfo(document.getElementById("id-cmd").value)
+};
 
 for (ipt of ["aspb", "aspv", "fraise"]){
   document.getElementById(ipt).addEventListener('change', () => {
-    var price = 0;
-    price += document.getElementById("aspb").value*8.5;
-    price += document.getElementById("aspv").value*8.5;
-    price += document.getElementById("fraise").value*3.5;
-    for (ipt of ["aspb", "aspv", "fraise"]){document.getElementById(ipt).value = Number(document.getElementById(ipt).value);}
+    let price = computeBill({
+      'aspb': document.getElementById("aspb").value,
+      'aspv': document.getElementById("aspv").value,
+      'fraise': document.getElementById("fraise").value,
+    });
+    for (ipt of ["aspb", "aspv", "fraise"]){
+      document.getElementById(ipt).value = Number(document.getElementById(ipt).value);
+    }
     if(price > 0){
       document.getElementById("consigne-order").style = "display:none;"
       document.getElementById("continue-order").style = "display:block;"

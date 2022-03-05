@@ -14,15 +14,12 @@ function formatDate(date) {
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
-
     if (month.length < 2)
         month = '0' + month;
     if (day.length < 2)
         day = '0' + day;
-
     return [year, month, day].join('-');
 }
-
 min = new Date();
 max = new Date();
 max.setMonth(max.getMonth()+1);
@@ -30,30 +27,34 @@ document.getElementById("date").min = min;
 document.getElementById("date").max = max;
 document.getElementById("date").value = formatDate(min);
 
-
-// PRICE COMPUTATION
 var price = 0;
-const unit_price = {
-  "aspb" : parseFloat(settings["aspb_price"]),
-  "aspv" : parseFloat(settings["aspv_price"]),
-  "fraise" : parseFloat(settings["fraise_price"])
-}
-computeBill = function(){
-  price = 0;
-  for(ipt of ["aspb", "aspv", "fraise"]){price += document.getElementById(ipt).value*unit_price[ipt];}
-  document.getElementById("price").innerText = price
-}
+var qty = {
+  "aspb" : 0,
+  "aspv" : 0,
+  "fraise" : 0
+};
+
 const urlParamsPanier = new URLSearchParams(window.location.search);
 for(ipt of ["aspb", "aspv", "fraise"]){
-  document.getElementById("prev-"+ipt).innerText = ((urlParamsPanier.get(ipt)) ? urlParamsPanier.get(ipt) : 0);
-  document.getElementById(ipt).value = ((urlParamsPanier.get(ipt)) ? urlParamsPanier.get(ipt) : 0);
+  qty[ipt] = (urlParamsPanier.get(ipt) ? urlParamsPanier.get(ipt) : 0);
   document.getElementById(ipt).addEventListener('change', () => {
-    computeBill()
-    for (ipt of ["aspb", "aspv", "fraise"]){document.getElementById(ipt).value = Number(document.getElementById(ipt).value);}
+    document.getElementById("price").innerText = computeBill(qty);
   });
+  document.getElementById("prev-"+ipt).innerText = Number(qty[ipt]);
+  document.getElementById(ipt).value = Number(qty[ipt]);
 }
-computeBill()
+document.getElementById("price").innerText = computeBill(qty);
 document.getElementById("prev-fraise").innerText = document.getElementById("prev-fraise").innerText*250;
+
+
+// PRICE COMPUTATION
+function updateSettings(){
+  for (key in settings){
+    if (key.endsWith('_price')){
+      document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
+    }
+  }
+}
 
 
 // TRY PREFILL FIELD
@@ -65,6 +66,7 @@ for(let field of ["name", "email", "phone"]){
       localStorage.setItem("order-"+field, document.getElementById(field).value)
     }
 }
+
 
 // BASKET EDITION
 document.getElementById("edit-basket").onclick = function(){
