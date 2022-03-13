@@ -255,51 +255,20 @@
 
   </div> <!--team-section--->
 
-  <div id="credits" class="modal">
-   <div class="modal-content">
-     <div class="modal-header">
-       <span class="close">&times;</span>
-     </div>
-     <div class="modal-body">
-         <h3>Confidentialité</h3>
-         <p>Contrairement à beaucoup d'autres, ce site ne contient aucun traqueur, ne dépose aucun cookie, et ne revend pas vos données pour du ciblage publicitaire. En d'autres termes, nous respectons votre vie privée à 100%. En guise de notre bonne foi, le code source de l'interface est public et <a href="https://github.com/Asperges-Bazoches/website">disponible sur GitHub.</a></p><br/>
-
-         <p>Les seules données enregistrées dans notre base de données sont celles que vous nous avez explicitement fournies par le biais du formulaire de commande. Leur traitement se fera en conformité avec le <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees">Règlement Européen de Protection des Données</a>:</p>
-         <ul>
-          <li>Toutes les informations que nous vous demandons sont essentielles à la bonne gestion de votre commande.</li>
-          <li>Nous avons mis en place des sécurités techniques et organisationnelles pour empécher des fuites de données.</li>
-          <li>Nous anonymiserons vos données personnelles (nom, téléphone, email) après la commande (au plus tard à la fin de la saison).</li>
-         </ul>
-
-         <p>Et n'oubliez pas que jamais nous ne vous demanderons de payer en ligne votre commande ! </p>
-         <p>Pour plus d'informations à ce sujet, vous pouvez nous contacter à l'adresse <a href="mailto:contact@champ-ramard.fr">contact@champ-ramard.fr</a></p>
-
-         <br/>
-
-         <div class="row" style="margin-bottom:50px">
-           <div class="col-sm-8">
-             <h3>Crédits</h3>
-             <p>Depuis un modèle libre de <a href="https://webscopeapp.com">Webscope</a></p>
-             <p>Avec des icones libres de <a href="https://fontawesome.com/license">Front Awesome</a></p>
-             <p>Avec une image libre de <a href="https://fr.freepik.com">Freepik</a></p>
-           </div>
-         </div>
-     </div>
-   </div>
+  <div id="credits" class="modal"><div id="copyrightContent"></div>
+    <script>
+      $(function(){
+        $("#copyrightContent").load("assets/components/modals/copyright.html");
+      });
+    </script>
   </div>
 
-
-  <div id="timetableModal" class="modal">
-    <!-- Modal content -->
-   <div class="modal-content">
-     <div class="modal-header">
-       <span class="close">&times;</span>
-       <h4>Retrouvez nous dans le sud Seine-et-Marne</h4>
-     </div>
-     <div class="modal-body" style="overflow:hidden;">
-       <iframe width="100%" height="100%" src="timetable.html" style="border: 0px solid black; margin-bottom:20px;"></iframe><br/>
-     </div>
-   </div>
+  <div id="timetableModal" class="modal"><div id="timetableContent"></div>
+    <script>
+      $(function(){
+        $("#timetableContent").load("assets/components/modals/timetable.html");
+      });
+    </script>
   </div>
 
   <div id="tyModal" class="modal">
@@ -320,30 +289,6 @@
          <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
        </ul>
        <p>Merci encore et à très bientôt !</p>
-     </div>
-  </div>
-  </div>
-
-  <div id="warningModal" class="modal">
-    <!-- Modal content -->
-   <div class="modal-content">
-     <div class="modal-header">
-       <span class="close">&times;</span>
-       <h2><img src='assets/images/walking-solid.svg' width='30px'/><img src='assets/images/logo.svg' width='30px' style='filter: grayscale(100%);'/> Nous livrons !</h2>
-     </div>
-     <div class="modal-body">
-       <div class="row" style='margin-top:20px;margin-bottom:100px;'>
-         <div class="col-sm-7">
-           <p>Bonjour à toutes et à tous,</p>
-           <p>Compte-tenu du contexte, nous reprenons les livraisons dans le sud Seine-et-Marne.</p>
-           <p>Si vous habitez à plus de 10km de Bazoches-Lès-Bray (77), vous puovez dès à présent sélectionner l'option correspondante dans le champ "Point de vente" du formulaire de commandes, tout en précisant en commentaire votre ville de résidence.</p>
-           <p>Nous ferons notre maximum pour vous livrer dans les meilleurs délais tout en regroupant les commandes par secteur pour plus d'efficacité. Nous vous tiendrons au courant d'un lieu et d'une heure de livraison. </p><br/>
-           <p>Merci encore et à très bientôt !</p>
-         </div>
-         <div class="col-sm-5">
-           <center><img src='assets/images/bb10km.jpg' style="width=400px;max-width:75%"/></center>
-         </div>
-        </div>
      </div>
   </div>
   </div>
