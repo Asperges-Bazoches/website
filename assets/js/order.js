@@ -107,7 +107,6 @@ document.getElementById("order-form").onsubmit = function(event){
            };
     $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data, status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
-      alert(status)
       if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
       }else{
