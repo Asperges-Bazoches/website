@@ -20,8 +20,12 @@ var modal_credit = document.getElementById("credits");
 var modal_ty = document.getElementById("tyModal");
 var modal_ttable = document.getElementById("timetableModal");
 
-for(link of document.getElementsByClassName('open-timetable')){link.onclick = function(){openModal(modal_ttable)}}
-for(link of document.getElementsByClassName('open-credits')){link.onclick = function(){openModal(modal_credit)}}
+for(link of document.getElementsByClassName('open-timetable')){
+  link.onclick = function(){openModal(modal_ttable)}
+}
+for(link of document.getElementsByClassName('open-credits')){
+  link.onclick = function(){openModal(modal_credit)}
+}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
