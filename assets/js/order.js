@@ -8,25 +8,6 @@ $(document).on("keypress", 'form', function (e) {
 });
 
 
-// READAPT DATE
-function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-    if (month.length < 2)
-        month = '0' + month;
-    if (day.length < 2)
-        day = '0' + day;
-    return [year, month, day].join('-');
-}
-min = new Date();
-max = new Date();
-max.setMonth(max.getMonth()+1);
-document.getElementById("date").min = min;
-document.getElementById("date").max = max;
-document.getElementById("date").value = formatDate(min);
-
 var price = 0;
 var qty = {
   "aspb" : 0,
@@ -56,7 +37,6 @@ function updateSettings(){
   }
 }
 
-
 // TRY PREFILL FIELD
 for(let field of ["name", "email", "phone"]){
     if(localStorage.getItem("order-"+field) != undefined){
@@ -66,26 +46,6 @@ for(let field of ["name", "email", "phone"]){
       localStorage.setItem("order-"+field, document.getElementById(field).value)
     }
 }
-
-
-// BASKET EDITION
-document.getElementById("edit-basket").onclick = function(){
-  document.getElementById("basket-edition").style.display = "block";
-  document.getElementById("basket-summary").style.display = "none";
-}
-
-
-// DUMMY ANTI ROBOT TRICK #2
-var cnt = 0
-const sizes = ["30px", "40px", "60px", "70px", "60px", "50px", "30px"]
-document.getElementById("left-horse").addEventListener('click', function(){
-  cnt += 1;
-  cond = (sizes[cnt%sizes.length] === "60px");
-  document.getElementById("left-horse").style = "width:"+sizes[cnt%sizes.length]+";";
-  document.getElementById("submit").style = (cond ? "display:block; max-width:200px;" : "display:none; max-width:200px;");
-  document.getElementById("ghooost").value = (cond ? "e8fe4zr" : "");
-});
-
 
 // MAKE QUERY TO ADD COMMAND
 document.getElementById("order-form").onsubmit = function(event){

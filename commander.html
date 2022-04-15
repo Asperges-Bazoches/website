@@ -41,6 +41,7 @@
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
               crossorigin="anonymous"></script>
+      <script src="assets/js/utils.js"></script>
   </head>
 
   <body>
@@ -90,9 +91,15 @@
   <div id="order" class="pricing-background">
     <form id="order-form">
     <div style="margin-bottom: 80px"><center>
-
       <div id="basket-summary" class="box">
+        <!-- DEFAULT VIEW --->
         <h3>Mon panier <a id="edit-basket">(Modifier)</a></h3>
+        <script>
+          document.getElementById("edit-basket").onclick = function(){
+            document.getElementById("basket-edition").style.display = "block";
+            document.getElementById("basket-summary").style.display = "none";
+          }
+        </script>
         <br/>
         <p class="plan-title light">
           ASPERGES BLANCHES<br/>
@@ -109,7 +116,7 @@
           <img class="emoji" src="assets/images/strawberry.svg" style="width:40px" />
           <span id="prev-fraise">0</span>G</p>
       </div>
-
+      <!-- BASKET EDITION VIEW --->
       <div id="basket-edition" class="pricing-table row" style="display:none;">
         <div class="col-sm-4">
           <div class="mid-plan" style="height:300px">
@@ -120,9 +127,8 @@
             <span id='aspb-unit'>portion(s)</span>
             <b id='no-aspb' style="display:none">Non disponible</b>
             <br>
-          </div><!--pro-plan--->
-        </div><!--col-->
-
+          </div>
+        </div>
         <div class="col-sm-4">
             <div class="mid-plan" style="height:300px">
               <h3 class="plan-title light">ASPERGES VERTES</h3>
@@ -132,10 +138,8 @@
               <span id='aspv-unit'>portion(s)</span>
               <b id='no-aspv' style="display:none">Non disponible</b>
               <br>
-            </div><!--basic-plan--->
-        </div><!--col-->
-
-
+            </div>
+        </div>
         <div class="col-sm-4">
             <div class="mid-plan" style="height:300px">
               <h3 class="plan-title light">FRAISES</h3>
@@ -145,9 +149,10 @@
               <span id='fraise-unit'>portion(s)</span>
               <b id='no-fraise' style="display:none">Non disponible</b>
               <br>
-            </div><!--basic-plan--->
-        </div><!--col-->
-      </div>  <!--pricing-table-->
+            </div>
+        </div>
+      </div>
+
 
 
       <div class="row" style="margin: 10px">
@@ -167,6 +172,16 @@
           </select><br/><br/>
           <label for="date">Date</label><br/>
           <input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01" required><br/><br/>
+          <script>
+            // READAPT DATE
+            min = new Date();
+            max = new Date();
+            min.setDate(min.getDate()+1);
+            max.setMonth(max.getMonth()+1);
+            document.getElementById("date").min = min;
+            document.getElementById("date").max = max;
+            document.getElementById("date").value = formatDate(min);
+          </script>
           <label for="hour">Créneau</label><br/>
           <select name="hour" id="hour" required>
             <option value="10h-12h30">10h-12h30</option>
@@ -189,6 +204,18 @@
          <img src="assets/images/coffee-solid.svg" width="60px"></br></br>
        </div>
        <input type="submit" id="submit" value="Valider la commande" style="display:none; max-width:200px;">
+       <script>
+         // DUMMY ANTI ROBOT TRICK #2
+         var cnt = 0
+         const sizes = ["30px", "40px", "60px", "70px", "60px", "50px", "30px"]
+         document.getElementById("left-horse").addEventListener('click', function(){
+           cnt += 1;
+           cond = (sizes[cnt%sizes.length] === "60px");
+           document.getElementById("left-horse").style = "width:"+sizes[cnt%sizes.length]+";";
+           document.getElementById("submit").style = (cond ? "display:block; max-width:200px;" : "display:none; max-width:200px;");
+           document.getElementById("ghooost").value = (cond ? "e8fe4zr" : "");
+         });
+       </script>
 
    <center></div>
   </form>
@@ -223,7 +250,7 @@
               </div>
 
               <div class="col-sm-6 webscope">
-                <span class="webscope-text">Copyright © EARL Champ Ramard 2021</span>
+                <span class="webscope-text">Copyright © EARL Champ Ramard 2022</span>
               </div>
 
               <div class="col-sm-3 admin-section">
