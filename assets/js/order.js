@@ -30,6 +30,11 @@ document.getElementById("prev-fraise").innerText = document.getElementById("prev
 
 // PRICE COMPUTATION
 function updateSettings(){
+  for (key of ['aspb', 'aspv', 'fraise']) {
+    document.getElementById(key).style.display = settings[key] ? "" : "none";
+    document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
+    document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
+  }
   for (key in settings){
     if (key.endsWith('_price')){
       document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
