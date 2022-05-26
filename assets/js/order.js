@@ -25,7 +25,7 @@ for(ipt of ["aspb", "aspv", "fraise"]){
   document.getElementById(ipt).value = Number(qty[ipt]);
 }
 document.getElementById("price").innerText = computeBill(qty);
-document.getElementById("prev-fraise").innerText = document.getElementById("prev-fraise").innerText*250;
+document.getElementById("prev-fraise").innerText = document.getElementById("prev-fraise").innerText*0.5;
 
 
 // PRICE COMPUTATION
