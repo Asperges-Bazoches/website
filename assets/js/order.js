@@ -40,6 +40,13 @@ function updateSettings(){
       document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
     }
   }
+  select = document.getElementById("hour")
+  for (slot of settings['order_slots'].split('//;//')){
+      var opt = document.createElement('option');
+      opt.value = slot;
+      opt.innerHTML = slot;
+      select.appendChild(opt);
+  }
 }
 
 // TRY PREFILL FIELD
