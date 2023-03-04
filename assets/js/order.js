@@ -7,7 +7,6 @@ $(document).on("keypress", 'form', function (e) {
     }
 });
 
-
 var price = 0;
 var qty = {
   "aspb" : 0,
