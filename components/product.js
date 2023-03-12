@@ -52,6 +52,7 @@ class Product extends HTMLElement {
   }
 
   setValue(value) {
+    console.log(value);
     this.shadowRoot.querySelector('#value').value = Number(value);
   }
 
