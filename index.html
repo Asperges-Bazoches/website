@@ -41,9 +41,9 @@
 
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-              crossorigin="anonymous">
-      </script>
+              crossorigin="anonymous"></script>
       <script src="assets/js/settings.js"></script>
+      <script src="components/product.js"></script>
   </head>
 
   <body>
@@ -161,53 +161,24 @@
       <center>
       <div class="pricing-table row">
         <form action="commander.html" method="get">
-        <div class="col-sm-4">
-          <div class="mid-plan">
-            <center>
-              <img src="assets/images/apserges_blanches.jpg"  width="190px" />
-            </center>
-            <h3 class="plan-title light">ASPERGES BLANCHES</h3>
-            <h4 id="aspb_price" class="plan-cost bold"></h4>
-            <h5 class="monthly">le kilo</h5>
-            <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0" style="width:50%">
-            <span id='aspb-unit'>portions</span>
-            <b id='no-aspb' style="display:none">Non disponible</b>
-          </div><!--pro-plan--->
-        </div><!--col-->
 
-        <div class="col-sm-4">
-            <div class="mid-plan"> <!-- class "plan" if unavailable -->
-              <center>
-                <img src="assets/images/apserges_verte.jpg" width="200px" />
-              </center>
-                <h3 class="plan-title light">ASPERGES VERTES (POINTES)</h3>
-                <h4 id="aspv_price" class="plan-cost bold"></h4>
-                <h5 class="monthly">le kilo</h5>
-                <input type="number" id="aspv" name="aspv" min="0" max="50" step="1" value="0" style="width:50%">
-                <span id='aspv-unit'>portions</span>
-                <b id='no-aspv' style="display:none">Non disponible</b>
-            </div><!--basic-plan--->
-        </div><!--col-->
+        <div-product
+          id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
+        ></div-product>
 
-        <div class="col-sm-4">
-            <div class="mid-plan">
-              <center>
-                <img src="assets/images/strawberry-pixabay.jpg"  width="200px" />
-              </center>
-                <h3 class="plan-title light">FRAISES</h3>
-                <h4 id="fraise_price" class="plan-cost bold"></h4>
-                <h5 class="monthly">les 500g</h5>
-                <input type="number" id="fraise" name="fraise" min="0" max="50" step="1" value="0" style="width:50%">
-                <span id='fraise-unit'>portions</span>
-                </p>
-                <b id='no-fraise' style="display:none">Non disponible</b>
-            </div><!--basic-plan--->
-        </div><!--col-->
-          <center>
-            <button type="dialog" id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
-            <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">Pour commander, commencez par choisir les produits dont vous avez besoin</em>
-          </center>
-         </form>
+        <div-product
+          id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
+        ></div-product>
+
+        <div-product
+          id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
+        ></div-product>
+
+        <center>
+          <button type="dialog" id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
+          <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">Pour commander, commencez par choisir les produits dont vous avez besoin</em>
+        </center>
+       </form>
       </div>  <!--pricing-table-->
     </center>
 
@@ -321,9 +292,13 @@
       updateSettings();
     });
 
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
-    };
+    try {
+      if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
+      };
+    } catch {
+      // pass
+    }
   </script>
   </body>
 </html>

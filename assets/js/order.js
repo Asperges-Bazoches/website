@@ -21,7 +21,7 @@ for(ipt of ["aspb", "aspv", "fraise"]){
     document.getElementById("price").innerText = computeBill(qty);
   });
   document.getElementById("prev-"+ipt).innerText = Number(qty[ipt]);
-  document.getElementById(ipt).value = Number(qty[ipt]);
+  document.getElementById(ipt).setValue(qty[ipt]);
 }
 document.getElementById("price").innerText = computeBill(qty);
 document.getElementById("prev-fraise").innerText = document.getElementById("prev-fraise").innerText*0.5;
@@ -29,16 +29,15 @@ document.getElementById("prev-fraise").innerText = document.getElementById("prev
 
 // PRICE COMPUTATION
 function updateSettings(){
+  const mapping_size = {'aspb': "1kg", 'aspv': "1kg", 'fraise': "500g"}
+
   for (key of ['aspb', 'aspv', 'fraise']) {
-    document.getElementById(key).style.display = settings[key] ? "" : "none";
-    document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
-    document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
+    elem = document.getElementById(key)
+    settings[key] ? elem.enable() : elem.disable();
+    elem.setPrice(settings[key + '_price']);
+    elem.setSize(mapping_size[key]);
   }
-  for (key in settings){
-    if (key.endsWith('_price')){
-      document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
-    }
-  }
+
   select = document.getElementById("hour")
   for (slot of settings['order_slots'].split('//;//')){
       var opt = document.createElement('option');

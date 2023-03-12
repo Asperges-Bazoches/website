@@ -25,7 +25,7 @@ function fetchSettings(){
 computeBill = function(qty){
   price = 0;
   for(ipt of ["aspb", "aspv", "fraise"]){
-    price += Number(qty[ipt])*settings[ipt+'_price'];
+    price += Number(qty[ipt]);
   }
   if (isNaN(price)){
     return '... '

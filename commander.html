@@ -42,6 +42,7 @@
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
               crossorigin="anonymous"></script>
       <script src="assets/js/utils.js"></script>
+      <script src="components/product.js"></script>
   </head>
 
   <body>
@@ -116,41 +117,23 @@
           <img class="emoji" src="assets/images/strawberry.svg" style="width:40px" />
           <span id="prev-fraise">0</span>KG</p>
       </div>
+
       <!-- BASKET EDITION VIEW --->
       <div id="basket-edition" class="pricing-table row" style="display:none;">
-        <div class="col-sm-4">
-          <div class="mid-plan" style="height:300px">
-            <h3 class="plan-title light">ASPERGES BLANCHES</h3>
-            <h4 id="aspb_price" class="plan-cost bold"></h4>
-            <h5 class="monthly">le kilo</h5>
-            <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0" style="width:50%">
-            <span id='aspb-unit'>portion(s)</span>
-            <b id='no-aspb' style="display:none">Non disponible</b>
-            <br>
-          </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="mid-plan" style="height:300px">
-              <h3 class="plan-title light">ASPERGES VERTES</h3>
-              <h4 id="aspv_price" class="plan-cost bold"></h4>
-              <h5 class="monthly">le kilo</h5>
-              <input type="number" id="aspv" name="aspv" min="0" max="50" step="1" value="0" style="width:50%">
-              <span id='aspv-unit'>portion(s)</span>
-              <b id='no-aspv' style="display:none">Non disponible</b>
-              <br>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="mid-plan" style="height:300px">
-              <h3 class="plan-title light">FRAISES</h3>
-              <h4 id="fraise_price" class="plan-cost bold"></h4>
-              <h5 class="monthly">les 500g</h5>
-              <input type="number" id="fraise" name="fraise" min="0" max="50" step="1" value="0" style="width:50%">
-              <span id='fraise-unit'>portion(s)</span>
-              <b id='no-fraise' style="display:none">Non disponible</b>
-              <br>
-            </div>
-        </div>
+
+        <div-product
+          id="aspb" name="ASPERGES BLANCHES"></div-product>
+
+        <div-product
+          id="aspv" name="ASPERGES VERTES"></div-product>
+
+        <div-product
+          id="fraise" name="FRAISES"></div-product>
+
+        <style>
+
+        </style>
+
       </div>
 
 
