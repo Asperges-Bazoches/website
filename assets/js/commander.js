@@ -53,7 +53,7 @@ $(document).on("keypress", 'form', function (e) {
 const urlParamsPanier = new URLSearchParams(window.location.search);
 for(ipt of ["aspb", "aspv", "fraise"]){
   elem = document.getElementById(ipt);
-  elem.setValue(urlParamsPanier.get(ipt) ? urlParamsPanier.get(ipt) : 0);
+  elem.setNumberOfItems(urlParamsPanier.get(ipt) ? urlParamsPanier.get(ipt) : 0);
   elem.onChange(updateBasket);
 }
 

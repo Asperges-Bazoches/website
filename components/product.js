@@ -51,7 +51,7 @@ class Product extends HTMLElement {
 
   }
 
-  setValue(value) {
+  setNumberOfItems(value) {
     console.log(value);
     this.shadowRoot.querySelector('#value').value = Number(value);
   }
@@ -84,13 +84,18 @@ class Product extends HTMLElement {
     return this.unitPrice;
   }
 
+
+  getNumberOfItems(){
+    return this.shadowRoot.querySelector('#value').value;
+  }
+
   getTotalSize() {
     // returns in kg !
     if(this.size.endsWith('kg')){
-      return this.shadowRoot.querySelector('#value').value;
+      return this.getNumberOfItems();
     } else if(this.size.endsWith('g')){
       let size = Number(this.size.slice(0, -1));
-      return this.shadowRoot.querySelector('#value').value * size / 1000;
+      return this.getNumberOfItems() * size / 1000;
     } else {
       return NaN
     }
