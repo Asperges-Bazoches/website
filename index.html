@@ -41,12 +41,17 @@
 
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-              crossorigin="anonymous">
-      </script>
-      <script src="assets/js/settings.js"></script>
+              crossorigin="anonymous"></script>
+      <script src="assets/js/toolbox.js"></script>
+      <script src="components/product.js"></script>
   </head>
 
   <body>
+  <script>
+    // GLOBAL VARIABLE
+    var settings = {'aspb': true, 'aspv': true, 'fraise': true};
+  </script>
+
   <!-- Navigation
       ================================================== -->
   <div class="hero-background">
@@ -160,54 +165,38 @@
 
       <center>
       <div class="pricing-table row">
-        <form action="commander.html" method="get">
-        <div class="col-sm-4">
-          <div class="mid-plan">
-            <center>
-              <img src="assets/images/apserges_blanches.jpg"  width="190px" />
-            </center>
-            <h3 class="plan-title light">ASPERGES BLANCHES</h3>
-            <h4 id="aspb_price" class="plan-cost bold"></h4>
-            <h5 class="monthly">le kilo</h5>
-            <input type="number" id="aspb" name="aspb" min="0" max="50" step="1" value="0" style="width:50%">
-            <span id='aspb-unit'>portions</span>
-            <b id='no-aspb' style="display:none">Non disponible</b>
-          </div><!--pro-plan--->
-        </div><!--col-->
+        <div-product id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
+        ></div-product>
+        <div-product id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
+        ></div-product>
+        <div-product id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
+        ></div-product>
 
-        <div class="col-sm-4">
-            <div class="mid-plan"> <!-- class "plan" if unavailable -->
-              <center>
-                <img src="assets/images/apserges_verte.jpg" width="200px" />
-              </center>
-                <h3 class="plan-title light">ASPERGES VERTES (POINTES)</h3>
-                <h4 id="aspv_price" class="plan-cost bold"></h4>
-                <h5 class="monthly">le kilo</h5>
-                <input type="number" id="aspv" name="aspv" min="0" max="50" step="1" value="0" style="width:50%">
-                <span id='aspv-unit'>portions</span>
-                <b id='no-aspv' style="display:none">Non disponible</b>
-            </div><!--basic-plan--->
-        </div><!--col-->
+        <center>
+          <button id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
+          <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">
+            Pour commander, commencez par choisir les produits dont vous avez besoin</em>
+        </center>
+        <script>
+          // TODO: Move this fonction to toolbox
+          createOrderURL = function(qty){
+            let href = "commander.html";
+            let sep = '?';
+            for (const [key, value] of Object.entries(qty)) {
+              href = href + sep + key + "=" + value;
+              sep = "&";
+            }
+            return href;
+          }
 
-        <div class="col-sm-4">
-            <div class="mid-plan">
-              <center>
-                <img src="assets/images/strawberry-pixabay.jpg"  width="200px" />
-              </center>
-                <h3 class="plan-title light">FRAISES</h3>
-                <h4 id="fraise_price" class="plan-cost bold"></h4>
-                <h5 class="monthly">les 500g</h5>
-                <input type="number" id="fraise" name="fraise" min="0" max="50" step="1" value="0" style="width:50%">
-                <span id='fraise-unit'>portions</span>
-                </p>
-                <b id='no-fraise' style="display:none">Non disponible</b>
-            </div><!--basic-plan--->
-        </div><!--col-->
-          <center>
-            <button type="dialog" id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
-            <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">Pour commander, commencez par choisir les produits dont vous avez besoin</em>
-          </center>
-         </form>
+          document.getElementById('continue-order').addEventListener('click', function(){
+            let qty = {};
+            for (var prodId of ["aspb", "aspv", "fraise"]) {
+              qty[prodId] = document.getElementById(prodId).getTotalSize()
+            }
+            window.location.href = createOrderURL(qty);
+          })
+        </script>
       </div>  <!--pricing-table-->
     </center>
 
@@ -272,8 +261,7 @@
   </div>
 
   <div id="tyModal" class="modal">
-    <!-- Modal content -->
-   <div class="modal-content">
+    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
        <h3 id="res-title"></h3>
@@ -290,40 +278,39 @@
        </ul>
        <p>Merci encore et à très bientôt !</p>
      </div>
-  </div>
+    </div>
   </div>
 
-  <!-- Footer
-    ================================================== -->
-
+  <!-- Footer -->
   <div class="footer">
       <div class="container">
           <div class="row">
             <div class="col-sm-3">
-                <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span>
-              </div>
-              <div class="col-sm-6 webscope">
-                <span class="webscope-text">Copyright © EARL Champ Ramard 2022</span>
-              </div>
-              <div class="col-sm-3 admin-section">
-                  <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm/" style="color:white">Administration des commandes</a></span>
-              </div>
+              <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span></div>
+            <div class="col-sm-6 webscope">
+              <span class="webscope-text">Copyright © EARL Champ Ramard 2023</span></div>
+            <div class="col-sm-3 admin-section">
+              <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm/" style="color:white">Administration des commandes</a></span></div>
           </div>
       </div>
   </div>
-  <!--footer-->
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/modal.js"></script>
-  <script src="assets/js/index.js"></script>
+  <script src="assets/js/index_orders.js"></script>
+  <script src="assets/js/index_routing.js"></script>
   <script>
-    fetchSettings().then(function(){
-      updateSettings();
+    fetchSettings().then(function(){ // imported from toolbox
+      updateSettings(); // imported from index_orders
     });
 
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
-    };
+    try {
+      if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
+      };
+    } catch {
+      // pass
+    }
   </script>
   </body>
 </html>

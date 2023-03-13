@@ -1,3 +1,4 @@
+
 const retrieveOrderInfo = function(idCmd){
   if(idCmd != null){
     $.get("https://api.champ-ramard.fr/v2/public/status.php?id_cmd="+idCmd, function(result){
@@ -38,53 +39,16 @@ const retrieveOrderInfo = function(idCmd){
   }
 };
 
-function updateSettings(){
-  for (key of ['aspb', 'aspv', 'fraise']) {
-    document.getElementById(key).style.display = settings[key] ? "" : "none";
-    document.getElementById(key+'-unit').style.display = settings[key] ? "" : "none";
-    document.getElementById('no-'+key).style.display = settings[key] ? "none" : "block";
-  }
-  for (key in settings){
-    if (key == 'website_title'){
-      document.getElementsByClassName("header-headline")[0].innerText = settings[key];
-    }
-    if (key == 'website_subtitle'){
-      document.getElementsByClassName("header-running-text")[0].innerText = settings[key];
-    }
-    if (key.endsWith('_price')){
-      document.getElementById(key).innerText = parseFloat(settings[key]).toFixed(2);
-    }
-  }
-}
 
+// REDIRECT TO THANK YOU PAGE
 const urlParams = new URLSearchParams(window.location.search);
-idCmd = urlParams.get("id-cmd");
+let idCmd = urlParams.get("id-cmd");
 retrieveOrderInfo(idCmd);
 document.getElementById("btn-id-cmd").onclick = function(){
   retrieveOrderInfo(document.getElementById("id-cmd").value)
 };
 
-for (ipt of ["aspb", "aspv", "fraise"]){
-  document.getElementById(ipt).addEventListener('change', () => {
-    let price = computeBill({
-      'aspb': document.getElementById("aspb").value,
-      'aspv': document.getElementById("aspv").value,
-      'fraise': document.getElementById("fraise").value,
-    });
-    for (ipt of ["aspb", "aspv", "fraise"]){
-      document.getElementById(ipt).value = Number(document.getElementById(ipt).value);
-    }
-    if(price > 0){
-      document.getElementById("consigne-order").style = "display:none;"
-      document.getElementById("continue-order").style = "display:block;"
-      document.getElementById("continue-order").innerHTML = "<h5>Poursuivre la commande ("+price+"€)</h5>"
-    }else{
-      document.getElementById("consigne-order").style = "display:block;"
-      document.getElementById("continue-order").style = "display:none;"
-    }
-  });
-}
-
+// REDIRECT TO ERROR PAGE
 if(urlParams.get("error")!=null){
   document.getElementsByClassName("header-headline bold")[0].innerText = "Une erreur s'est produite";
   document.getElementsByClassName("header-running-text")[0].innerText = "La page que vous souhaitiez consulter n'existe peut-être pas (ou plus)...";
