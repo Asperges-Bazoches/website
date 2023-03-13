@@ -150,6 +150,16 @@
             document.getElementById("date").min = min;
             document.getElementById("date").max = max;
             document.getElementById("date").value = formatDate(min);
+
+            // TRY TO PREFILL FIELDS
+            for(let field of ["name", "email", "phone"]){
+                if(localStorage.getItem("order-"+field) != undefined){
+                  document.getElementById(field).value = localStorage.getItem("order-"+field);
+                }
+                document.getElementById(field).onchange = function(){
+                  localStorage.setItem("order-"+field, document.getElementById(field).value);
+                }
+            }
           </script>
           <label for="hour">Créneau <em>*</em></label><br/><select name="hour" id="hour" required></select><br><br>
           <input type="text" id="ghooost" value="" style="display:none" required>
@@ -218,7 +228,7 @@
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/modal.js"></script>
-  <script src="assets/js/order.js"></script>
+  <script src="assets/js/commander.js"></script>
   <script>fetchSettings().then(function(settings){updateSettings(settings); updateBasket();})</script>
   </body>
 </html>

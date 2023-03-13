@@ -81,7 +81,15 @@ class Product extends HTMLElement {
   }
 
   getSize() {
-    return this.shadowRoot.querySelector('#value').value;
+    // returns in kg !
+    if(this.size.endsWith('kg')){
+      return this.shadowRoot.querySelector('#value').value;
+    } else if(this.size.endsWith('g')){
+      let size = Number(this.size.slice(0, -1));
+      return this.shadowRoot.querySelector('#value').value * size / 1000;
+    } else {
+      return NaN
+    }
   }
 
   getTotalPrice() {
