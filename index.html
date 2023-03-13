@@ -160,29 +160,36 @@
 
       <center>
       <div class="pricing-table row">
-        <div-product
-          id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
+        <div-product id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
         ></div-product>
-        <div-product
-          id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
+        <div-product id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
         ></div-product>
-        <div-product
-          id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
+        <div-product id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
         ></div-product>
+
         <center>
           <button id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
           <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">
             Pour commander, commencez par choisir les produits dont vous avez besoin</em>
         </center>
         <script>
-          purchaseBtn = document.getElementById('continue-order')
-          purchaseBtn.addEventListener('click', function(){
-            aspb = document.getElementById("aspb").getSize()
-            aspv = document.getElementById("aspv").getSize()
-            fraise = document.getElementById("fraise").getSize()
-            let href = "commander.html?aspb=" + aspb + "&aspv=" + aspv + "&fraise=" + fraise;
-            console.info(href);
-            window.location.href = href;
+          // TODO: Move this fonction to toolbox
+          createOrderURL = function(qty){
+            let href = "commander.html";
+            let sep = '?';
+            for (const [key, value] of Object.entries(qty)) {
+              href = href + sep + key + "=" + value;
+              sep = "&";
+            }
+            return href;
+          }
+
+          document.getElementById('continue-order').addEventListener('click', function(){
+            let qty = {};
+            for (var prodId of ["aspb", "aspv", "fraise"]) {
+              qty[prodId] = document.getElementById(prodId).getSize()
+            }
+            window.location.href = createOrderURL(qty);
           })
         </script>
       </div>  <!--pricing-table-->
@@ -280,7 +287,7 @@
                 <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span>
               </div>
               <div class="col-sm-6 webscope">
-                <span class="webscope-text">Copyright © EARL Champ Ramard 2022</span>
+                <span class="webscope-text">Copyright © EARL Champ Ramard 2023</span>
               </div>
               <div class="col-sm-3 admin-section">
                   <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm/" style="color:white">Administration des commandes</a></span>

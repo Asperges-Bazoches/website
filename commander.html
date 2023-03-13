@@ -2,7 +2,6 @@
 <html lang="fr">
   <head>
       <meta charset="UTF-8">
-
       <title>Commander - Les asperges de Bazoches-Lès-Bray</title>
       <meta property="og:title" content="Les asperges de Bazoches-Lès-Bray">
       <meta name="og:site_name" content="Les asperges de Bazoches-Lès-Bray"/>
@@ -54,7 +53,7 @@
 
         <div class="col-sm-3 feature">
           <div class="feature-icon feature-display">
-            <img class="feature-img" src="assets/images/cash-register-solid.svg" style="max-width: 25px;width: 35px;">
+            <img class="feature-img" src="assets/images/cash-register-solid.svg" style="max-width:25px;width:35px;">
           </div>
           <h5 class="feature-head-text feature-display"> Remplissez le formulaire </h5>
           <p class="feature-subtext light feature-display"> Le mail et le téléphone sont obligatoires pour le bon déroulement de la commande. Nous y prendrons soin. <a class="open-credits"/> Retrouvez notre politique de confidentialité</a>.</p>
@@ -62,7 +61,7 @@
 
         <div class="col-sm-3 feature">
           <div class="feature-icon feature-display">
-            <img class="feature-img" src="assets/images/envelope-solid.svg" style="max-width: 25px;width: 35px;">
+            <img class="feature-img" src="assets/images/envelope-solid.svg" style="max-width:25px;width:35px;">
           </div>
           <h5 class="feature-head-text feature-display"> Mail de bonne réception </h5>
           <p class="feature-subtext light feature-display"> Un mail vous sera envoyé pour confirmer la bonne réception de votre commande. Elle est ensuite soumise à validation. </p>
@@ -70,7 +69,7 @@
 
         <div class="col-sm-3 feature">
           <div class="feature-icon feature-display">
-            <img class="feature-img" src="assets/images/envelope-solid.svg" style="max-width: 25px;width: 35px;">
+            <img class="feature-img" src="assets/images/envelope-solid.svg" style="max-width:25px;width:35px;">
           </div>
           <h5 class="feature-head-text feature-display"> Mail de confirmation </h5>
           <p class="feature-subtext light feature-display"> Si votre commande est validée, vous receverez un second mail. Si l'horaire que vous avez proposé ne convient pas, nous vous contacterons par téléphone.
@@ -78,7 +77,7 @@
 
         <div class="col-sm-3 feature">
           <div class="feature-icon feature-display feature-display-last">
-            <img class="bullet-img" src="assets/images/cart-arrow-down-solid.svg" style="max-width: 27px;width: 35px;">
+            <img class="bullet-img" src="assets/images/cart-arrow-down-solid.svg" style="max-width:27px;width:35px;">
           </div>
           <h5 class="feature-head-text feature-display feature-display-last"> Récupérez votre dû  </h5>
           <p class="feature-subtext light feature-display feature-display-last"> Pas de paiement en ligne disponible. Payez directement votre commande sur place.</p>
@@ -93,59 +92,42 @@
     <form id="order-form">
     <div style="margin-bottom: 80px"><center>
       <div id="basket-summary" class="box">
+
         <!-- DEFAULT VIEW --->
-        <h3>Mon panier <a id="edit-basket">(Modifier)</a></h3>
-        <script>
-          document.getElementById("edit-basket").onclick = function(){
-            document.getElementById("basket-edition").style.display = "block";
-            document.getElementById("basket-summary").style.display = "none";
-          }
-        </script>
-        <br/>
-        <p class="plan-title light">
-          ASPERGES BLANCHES<br/>
+        <h3>Mon panier <a id="edit-basket">(Modifier)</a></h3><br/>
+        <p class="plan-title light"> ASPERGES BLANCHES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
           <span id="prev-aspb">0</span>KG</p>
         <hr/>
-        <p class="plan-title light">
-          ASPERGES VERTES<br/>
+        <p class="plan-title light"> ASPERGES VERTES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
           <span id="prev-aspv">0</span>KG</p>
         <hr/>
-        <p class="plan-title light">
-          FRAISES<br/>
+        <p class="plan-title light"> FRAISES<br/>
           <img class="emoji" src="assets/images/strawberry.svg" style="width:40px" />
           <span id="prev-fraise">0</span>KG</p>
       </div>
 
       <!-- BASKET EDITION VIEW --->
       <div id="basket-edition" class="pricing-table row" style="display:none;">
-
-        <div-product
-          id="aspb" name="ASPERGES BLANCHES"></div-product>
-
-        <div-product
-          id="aspv" name="ASPERGES VERTES"></div-product>
-
-        <div-product
-          id="fraise" name="FRAISES"></div-product>
-
-        <style>
-
-        </style>
-
+        <div-product id="aspb" name="ASPERGES BLANCHES"></div-product>
+        <div-product id="aspv" name="ASPERGES VERTES"></div-product>
+        <div-product id="fraise" name="FRAISES"></div-product>
       </div>
 
+      <!-- BASKET EDITION/SUMMARY BUTTON --->
+      <script>
+        document.getElementById("edit-basket").onclick = function(){
+          document.getElementById("basket-edition").style.display = "block";
+          document.getElementById("basket-summary").style.display = "none";}
+      </script>
 
-
+      <!-- ORDER FORM --->
       <div class="row" style="margin: 10px">
         <div class="col-sm-3"  style="margin-bottom: 30px">
-          <label for="name">Prénom Nom</label><br/>
-          <input type="text" id="name" name="name" required><br/><br/>
-          <label for="email">Adresse email</label><br/>
-          <input type="email" id="email" name="email" placeholder="exemple@protonmail.com" required><br/><br/>
-          <label for="phone">Téléphone</label><br/>
-          <input type="tel" id="phone" name="phone" placeholder="0160670000" required><br/><br/>
+          <label for="name">Prénom Nom</label><br/><input type="text" id="name" name="name" required><br/><br/>
+          <label for="email">Adresse email</label><br/><input type="email" id="email" name="email" placeholder="exemple@protonmail.com" required><br/><br/>
+          <label for="phone">Téléphone</label><br/><input type="tel" id="phone" name="phone" placeholder="0160670000" required><br/><br/>
         </div>
         <div class="col-sm-3" style="margin-bottom: 30px">
           <label for="place">Point de vente <!--</label><a class="open-timetable"> (Notre planning)</a>--><br/>
@@ -153,8 +135,7 @@
             <option value="Bazoches-Lès-Bray">Bazoches-Lès-Bray (Tous les jours)</option>
             <!--<option value="Livraison">Demande de livraison</option>-->
           </select><br/><br/>
-          <label for="date">Date</label><br/>
-          <input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01" required><br/><br/>
+          <label for="date">Date</label><br/><input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01" required><br/><br/>
           <script>
             // READAPT DATE
             min = new Date();
@@ -165,13 +146,7 @@
             document.getElementById("date").max = max;
             document.getElementById("date").value = formatDate(min);
           </script>
-          <label for="hour">Créneau <em>*</em></label><br/>
-          <select name="hour" id="hour" required>
-            <!--<option value="10h-12h30">10h-12h30</option>-->
-            <!--<option value="14h-17h30">14h-17h30</option>-->
-            <!--<option value="14h-16h">14h-16h</option>-->
-            <!--<option value="16h-18h">16h-18h</option>-->
-          </select><br><br>
+          <label for="hour">Créneau <em>*</em></label><br/><select name="hour" id="hour" required></select><br><br>
           <input type="text" id="ghooost" value="" style="display:none" required>
         </div>
         <div class="col-sm-6" style="margin-bottom: 30px">
@@ -222,38 +197,24 @@
     </script>
   </div>-->
 
-  <!-- Footer
-    ================================================== -->
-
+  <!-- FOOTER -->
   <div class="footer">
       <div class="container">
           <div class="row">
-
               <div class="col-sm-3">
-                <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span>
-              </div>
-
+                <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span></div>
               <div class="col-sm-6 webscope">
-                <span class="webscope-text">Copyright © EARL Champ Ramard 2022</span>
-              </div>
-
+                <span class="webscope-text">Copyright © EARL Champ Ramard 2023</span></div>
               <div class="col-sm-3 admin-section">
-                  <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm" style="color:white">Administration des commandes</a></span>
-              </div>
+                  <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm" style="color:white">Administration des commandes</a></span></div>
           </div>
       </div>
   </div>
-  <!--footer-->
 
   <script src="assets/js/settings.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="assets/js/modal.js"></script>
   <script src="assets/js/order.js"></script>
-  <script>
-    fetchSettings().then(function(){
-      updateSettings();
-      updateBasket();
-    })
-  </script>
+  <script>fetchSettings().then(function(){updateSettings(); updateBasket();})</script>
   </body>
 </html>
