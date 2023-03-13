@@ -6,8 +6,8 @@ function updateSettings(){
   for (key of ['aspb', 'aspv', 'fraise']) {
     elem = document.getElementById(key);
     settings[key] ? elem.enable() : elem.disable();
-    elem.setPrice(settings[key + '_price']);
-    elem.setSize(mapping_size[key]);
+    elem.setUnitPrice(settings[key + '_price']);
+    elem.setUnitSize(mapping_size[key]);
   }
 
   // add options in hour selectInput
@@ -33,7 +33,7 @@ function updateBasket() {
   for(ipt of ["aspb", "aspv", "fraise"]){
     elem = document.getElementById(ipt);
     prev = document.getElementById("prev-"+ipt);
-    prev.innerText = elem.getSize();
+    prev.innerText = elem.getTotalSize();
   }
 }
 

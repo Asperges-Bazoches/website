@@ -45,8 +45,8 @@ function updateSettings() {
   for (key of ['aspb', 'aspv', 'fraise']) {
     elem = document.getElementById(key)
     settings[key] ? elem.enable() : elem.disable();
-    elem.setPrice(settings[key + '_price']);
-    elem.setSize(mapping_size[key]);
+    elem.setUnitPrice(settings[key + '_price']);
+    elem.setUnitSize(mapping_size[key]);
   }
   for (key in settings){
     if (key == 'website_title'){
@@ -58,6 +58,8 @@ function updateSettings() {
   }
 }
 
+
+// REDIRECT TO THANK YOU PAGE
 const urlParams = new URLSearchParams(window.location.search);
 idCmd = urlParams.get("id-cmd");
 retrieveOrderInfo(idCmd);
@@ -65,6 +67,8 @@ document.getElementById("btn-id-cmd").onclick = function(){
   retrieveOrderInfo(document.getElementById("id-cmd").value)
 };
 
+
+// Add behaviour when change size of each product
 for (ipt of ["aspb", "aspv", "fraise"]){
   document.getElementById(ipt).onChange(() => {
     let price = computeBill({
@@ -84,6 +88,8 @@ for (ipt of ["aspb", "aspv", "fraise"]){
   });
 }
 
+
+// REDIRECT TO ERROR PAGE
 if(urlParams.get("error")!=null){
   document.getElementsByClassName("header-headline bold")[0].innerText = "Une erreur s'est produite";
   document.getElementsByClassName("header-running-text")[0].innerText = "La page que vous souhaitiez consulter n'existe peut-être pas (ou plus)...";

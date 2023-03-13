@@ -192,7 +192,7 @@
           document.getElementById('continue-order').addEventListener('click', function(){
             let qty = {};
             for (var prodId of ["aspb", "aspv", "fraise"]) {
-              qty[prodId] = document.getElementById(prodId).getSize()
+              qty[prodId] = document.getElementById(prodId).getTotalSize()
             }
             window.location.href = createOrderURL(qty);
           })

@@ -56,14 +56,14 @@ class Product extends HTMLElement {
     this.shadowRoot.querySelector('#value').value = Number(value);
   }
 
-  setSize(size){
+  setUnitSize(size){
     this.size = size;
     if(size){
       this.shadowRoot.querySelector('#portion').innerText = "1 portion = " + size;
     }
   }
 
-  setPrice(price){
+  setUnitPrice(price){
     this.unitPrice = parseFloat(price).toFixed(2);
     this.shadowRoot.querySelector('#price').innerText = this.unitPrice;
   }
@@ -80,7 +80,11 @@ class Product extends HTMLElement {
     this.shadowRoot.querySelector('#disabled').style.display = 'block';
   }
 
-  getSize() {
+  getUnitPrice() {
+    return this.unitPrice;
+  }
+
+  getTotalSize() {
     // returns in kg !
     if(this.size.endsWith('kg')){
       return this.shadowRoot.querySelector('#value').value;
@@ -93,14 +97,9 @@ class Product extends HTMLElement {
   }
 
   getTotalPrice() {
-    //console.info(this.unitPrice + ' ' + this.getSize());
-    //console.info(this.unitPrice * this.getSize());
-    return this.unitPrice * this.getSize();
+    return this.unitPrice * this.getTotalSize();
   }
 
-  getUnitPrice() {
-    return this.unitPrice;
-  }
 }
 
 customElements.define("div-product", Product);
