@@ -1,3 +1,4 @@
+// TODO: Transform this to a component
 const retrieveOrderInfo = function(idCmd){
   if(idCmd != null){
     $.get("https://api.champ-ramard.fr/v2/public/status.php?id_cmd="+idCmd, function(result){

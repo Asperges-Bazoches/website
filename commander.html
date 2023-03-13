@@ -40,11 +40,16 @@
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
               crossorigin="anonymous"></script>
-      <script src="assets/js/utils.js"></script>
+      <script src="assets/js/toolbox.js"></script>
       <script src="components/product.js"></script>
   </head>
 
   <body>
+  <script>
+    // GLOBAL VARIABLE
+    var settings = {'aspb': true, 'aspv': true, 'fraise': true};
+  </script>
+
   <div id="delivery" class="delivery-section">
 
       <h2 style="color:#FFFFFF">Finaliser ma commande</h2>
@@ -211,10 +216,9 @@
       </div>
   </div>
 
-  <script src="assets/js/settings.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="assets/js/modal.js"></script>
   <script src="assets/js/order.js"></script>
-  <script>fetchSettings().then(function(){updateSettings(); updateBasket();})</script>
+  <script>fetchSettings().then(function(settings){updateSettings(settings); updateBasket();})</script>
   </body>
 </html>

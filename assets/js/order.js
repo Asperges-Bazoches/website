@@ -7,6 +7,7 @@ $(document).on("keypress", 'form', function (e) {
     }
 });
 
+// TODO: Remove price and qty
 var price = 0;
 var qty = {
   "aspb" : 0,
@@ -74,6 +75,8 @@ document.getElementById("order-form").onsubmit = function(event){
   ok = (document.getElementById("name").value.length > 0);
   ok = ok && (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(document.getElementById("email").value));
   ok = ok && (document.getElementById("phone").value.length > 9);
+
+  // TODO: Decompose fetch & modify DOMs
   if(ok){
     body = { name: document.getElementById("name").value,
              email: document.getElementById("email").value,
@@ -91,7 +94,7 @@ document.getElementById("order-form").onsubmit = function(event){
       //"success", "notmodified", "error", "timeout", or "parsererror"
       if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
-      }else{
+      } else {
         document.getElementById("coffees").style.display = "none";
         document.getElementById("instrsuction").innerText = "Au moins une des informations que vous avez renseignées a été jugée illicite. Cela peut provenir de la présence de caractères spéciaux. Si le problème persiste, n'hésitez pas à passer la commande par téléphone au 0160671423.";
         document.getElementById("submit").style["border-color"] = "red";

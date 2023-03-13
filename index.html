@@ -42,11 +42,16 @@
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
               crossorigin="anonymous"></script>
-      <script src="assets/js/settings.js"></script>
+      <script src="assets/js/toolbox.js"></script>
       <script src="components/product.js"></script>
   </head>
 
   <body>
+  <script>
+    // GLOBAL VARIABLE
+    var settings = {'aspb': true, 'aspv': true, 'fraise': true};
+  </script>
+
   <!-- Navigation
       ================================================== -->
   <div class="hero-background">
@@ -256,8 +261,7 @@
   </div>
 
   <div id="tyModal" class="modal">
-    <!-- Modal content -->
-   <div class="modal-content">
+    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
        <h3 id="res-title"></h3>
@@ -274,28 +278,22 @@
        </ul>
        <p>Merci encore et à très bientôt !</p>
      </div>
-  </div>
+    </div>
   </div>
 
-  <!-- Footer
-    ================================================== -->
-
+  <!-- Footer -->
   <div class="footer">
       <div class="container">
           <div class="row">
             <div class="col-sm-3">
-                <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span>
-              </div>
-              <div class="col-sm-6 webscope">
-                <span class="webscope-text">Copyright © EARL Champ Ramard 2023</span>
-              </div>
-              <div class="col-sm-3 admin-section">
-                  <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm/" style="color:white">Administration des commandes</a></span>
-              </div>
+              <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span></div>
+            <div class="col-sm-6 webscope">
+              <span class="webscope-text">Copyright © EARL Champ Ramard 2023</span></div>
+            <div class="col-sm-3 admin-section">
+              <span class="webscope-text"><a href="https://api.champ-ramard.fr/ihm/" style="color:white">Administration des commandes</a></span></div>
           </div>
       </div>
   </div>
-  <!--footer-->
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/modal.js"></script>
