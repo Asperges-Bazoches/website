@@ -160,25 +160,31 @@
 
       <center>
       <div class="pricing-table row">
-        <form action="commander.html" method="get">
-
         <div-product
           id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
         ></div-product>
-
         <div-product
           id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
         ></div-product>
-
         <div-product
           id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
         ></div-product>
-
         <center>
-          <button type="dialog" id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
-          <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">Pour commander, commencez par choisir les produits dont vous avez besoin</em>
+          <button id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
+          <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">
+            Pour commander, commencez par choisir les produits dont vous avez besoin</em>
         </center>
-       </form>
+        <script>
+          purchaseBtn = document.getElementById('continue-order')
+          purchaseBtn.addEventListener('click', function(){
+            aspb = document.getElementById("aspb").getSize()
+            aspv = document.getElementById("aspv").getSize()
+            fraise = document.getElementById("fraise").getSize()
+            let href = "commander.html?aspb=" + aspb + "&aspv=" + aspv + "&fraise=" + fraise;
+            console.info(href);
+            window.location.href = href;
+          })
+        </script>
       </div>  <!--pricing-table-->
     </center>
 
