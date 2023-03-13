@@ -297,10 +297,11 @@
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/modal.js"></script>
-  <script src="assets/js/index.js"></script>
+  <script src="assets/js/index_orders.js"></script>
+  <script src="assets/js/index_routing.js"></script>
   <script>
-    fetchSettings().then(function(){
-      updateSettings();
+    fetchSettings().then(function(){ // imported from toolbox
+      updateSettings(); // imported from index_orders
     });
 
     try {
