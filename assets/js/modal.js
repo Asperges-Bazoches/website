@@ -1,3 +1,5 @@
+// Rename to register modal ?
+
 function openModal(one_modal) {
   one_modal.style.display = "block";
   document.documentElement.style.overflow = 'hidden';
