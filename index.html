@@ -46,6 +46,7 @@
       <script src="assets/js/modal.js"></script>
       <script src="assets/js/toolbox.js"></script>
       <script src="components/product.js"></script>
+      <script src="components/product_lastseen.js"></script>
       <script src="components/modal_copyright.js"></script>
       <script src="components/modal_order.js"></script>
   </head>
@@ -201,6 +202,8 @@
       <button id="btn-id-cmd"><h5>Rechercher</h5></a></button>
     </center>
 
+    <div-products-lastseen></div-products-lastseen>
+
       <center style="margin-top:40px">
         <a href="#team"><img class="emoji" src="assets/images/angle-double-down-solid.svg" width="20px" style="margin-bottom:60px;"></a>
       </center>
@@ -257,13 +260,15 @@
       updateSettings(); // imported from index_orders
     });
 
-    try {
       if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
-      };
-    } catch {
-      // pass
-    }
+        navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js').then(
+        (registration) => {
+          console.log("Service worker registration succeeded:", registration);
+        },
+        (error) => {
+          console.error(`Service worker registration failed: ${error}`);
+        });
+      }
   </script>
   </body>
 </html>

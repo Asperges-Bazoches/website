@@ -74,3 +74,25 @@ createOrderURL = function(qty){
   }
   return href;
 }
+
+
+// Returns a dict with id-cmd and date of order
+//
+loadLastOrdersSeen = function(){
+  let lastOrders = localStorage.getItem('last-orders');
+  if(lastOrders == null){
+    lastOrders = {};
+  } else {
+    lastOrders = JSON.parse(lastOrders);
+  }
+  return lastOrders;
+}
+
+
+// Add a new order to the list saved in localStorage
+//
+appendNewOrder = function(idCmd, details){
+  let lastOrders = loadLastOrdersSeen();
+  lastOrders[idCmd] = details["day"];
+  localStorage.setItem('last-orders', JSON.stringify(lastOrders));
+}
