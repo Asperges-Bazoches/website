@@ -1,10 +1,49 @@
-// Rename to register modal ?
+class Modal extends HTMLElement {
+  constructor() {
+    // Always call parent constructor first
+    super();
+
+    // Get template content from DOM
+    var template = document.createElement("TEMPLATE");
+      template.innerHTML = `
+      <link rel="stylesheet" href="assets/css/styles.pure.css"/>
+      <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+         <div class="modal-header">
+           <span id="close-btn" class="close">&times;</span>
+           <h3 id="modal-title"></h3>
+         </div>
+         <div id="modal-body" class="modal-body"></div>
+        </div>
+      </div>
+      `
+    // Create new Shadow Root
+    const shadowRoot = this.attachShadow({ mode: "open" }).appendChild(
+      template.content.cloneNode(true)
+    );
+
+  }
+
+  connectedCallback() {
+
+      this.shadowRoot.querySelector('#close-btn').onclick = function(){
+        closeModal(this.parentNode.parentNode.parentNode)
+      }
+
+  }
+
+  open (){openModal(this.shadowRoot.querySelector('#modal'))}
+
+  close (){closeModal(this.shadowRoot.querySelector('#modal'));}
+
+}
+
+customElements.define("modal-skeleton", Modal);
 
 function openModal(one_modal) {
   one_modal.style.display = "block";
   document.documentElement.style.overflow = 'hidden';
   document.body.scroll = "no";
-  active_modal = one_modal;
 }
 
 function closeModal(one_modal) {
@@ -14,6 +53,7 @@ function closeModal(one_modal) {
   document.body.scroll = "yes";
 }
 
+/*
 var active_modal = null;
 
 var modal = document.getElementById("myModal");
@@ -38,3 +78,4 @@ window.onclick = function(event) {
     closeModal(active_modal);
   }
 }
+*/
