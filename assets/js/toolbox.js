@@ -59,3 +59,18 @@ formatDate = function(date) {
         day = '0' + day;
     return [year, month, day].join('-');
 }
+
+// Create URL with query params
+//
+// qty = {'aspb':1, 'aspv':1, 'fraise':0}
+// "commander.html?aspb=2&aspv=0&fraise=1"
+//
+createOrderURL = function(qty){
+  let href = "commander.html";
+  let sep = '?';
+  for (const [key, value] of Object.entries(qty)) {
+    href = href + sep + key + "=" + value;
+    sep = "&";
+  }
+  return href;
+}
