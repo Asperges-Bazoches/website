@@ -6,7 +6,7 @@ const retrieveOrderInfo = function(idCmd){
       console.log(result);
       console.log(result["res"]);
 
-      modal = document.getElementById('...')
+      let modal = document.getElementsByTagName('modal-order')[0]
 
       if(result["res"]=="ok"){
 
@@ -14,9 +14,9 @@ const retrieveOrderInfo = function(idCmd){
 
         if(urlParams.get("ty") !== null){
           modal.tagAsRegistered();
-        } else if(result["status"] == "ACCEPTéE"){
+        } else if(result["status"].replace('é', 'E') == "ACCEPTEE"){
           modal.tagAsAccepted();
-        }else if(result["status"] == "REFUSéE"){
+        }else if(result["status"].replace('é', 'E') == "REFUSEE"){
           modal.tagAsRefused();
         }else if(result["status"] == "ARCHIVED"){
           modal.tagAsArchived();
