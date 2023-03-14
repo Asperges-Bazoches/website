@@ -89,7 +89,7 @@ class Product extends HTMLElement {
     return this.shadowRoot.querySelector('#value').value;
   }
 
-  getTotalSize() {
+  getWeight() {
     // returns in kg !
     if(this.size.endsWith('kg')){
       return this.getNumberOfItems();
@@ -102,7 +102,8 @@ class Product extends HTMLElement {
   }
 
   getTotalPrice() {
-    return this.unitPrice * this.getTotalSize();
+    // prix d'une unité * le nombre d'unités
+    return this.unitPrice * this.getNumberOfItems();
   }
 
 }

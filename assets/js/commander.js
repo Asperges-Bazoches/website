@@ -33,7 +33,7 @@ function updateBasket() {
   for(ipt of ["aspb", "aspv", "fraise"]){
     elem = document.getElementById(ipt);
     prev = document.getElementById("prev-"+ipt);
-    prev.innerText = elem.getTotalSize();
+    prev.innerText = elem.getWeight();
   }
 }
 
