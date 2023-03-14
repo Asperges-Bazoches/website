@@ -47,8 +47,8 @@ class ProductLastSeen extends HTMLElement {
         }
 
       </style>
-      <div style="margin: 10px 10% 0% 10%;">
-        <div id="chips-bag" style="display: inline;"></div>
+      <div style="margin: 10px 10% 0% 10%; ">
+        <div id="chips-bag" style="display:flex;flex-wrap:wrap;clear:left;justify-content:center;"></div>
       </div>
       `
     // Create new Shadow Root
