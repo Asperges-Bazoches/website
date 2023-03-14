@@ -46,6 +46,7 @@
       <script src="assets/js/modal.js"></script>
       <script src="assets/js/toolbox.js"></script>
       <script src="components/product.js"></script>
+      <script src="components/product_lastseen.js"></script>
       <script src="components/modal_copyright.js"></script>
       <script src="components/modal_order.js"></script>
   </head>
@@ -182,22 +183,10 @@
             Pour commander, commencez par choisir les produits dont vous avez besoin</em>
         </center>
         <script>
-          // TODO: Move this fonction to toolbox
-          createOrderURL = function(qty){
-            let href = "commander.html";
-            let sep = '?';
-            for (const [key, value] of Object.entries(qty)) {
-              href = href + sep + key + "=" + value;
-              sep = "&";
-            }
-            return href;
-          }
-
           document.getElementById('continue-order').addEventListener('click', function(){
             let qty = {};
             for (var prodId of ["aspb", "aspv", "fraise"]) {
-              qty[prodId] = document.getElementById(prodId).getNumberOfItems()
-            }
+              qty[prodId] = document.getElementById(prodId).getNumberOfItems()}
             window.location.href = createOrderURL(qty);
           })
         </script>
@@ -206,13 +195,14 @@
 
   </div><!--pricing-background-->
 
-
   <div id="cmd-info" style="background: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%); padding: 70px 0 50px 0;">
     <center>
       <h3 >Suivre une ancienne commande</h3>
       <input type="text" id="id-cmd" name="id-cmd" placeholder="000-XXXX" style="width:50%;height:47px">
       <button id="btn-id-cmd"><h5>Rechercher</h5></a></button>
     </center>
+
+    <div-products-lastseen></div-products-lastseen>
 
       <center style="margin-top:40px">
         <a href="#team"><img class="emoji" src="assets/images/angle-double-down-solid.svg" width="20px" style="margin-bottom:60px;"></a>
@@ -222,52 +212,24 @@
     ================================================== -->
 
   <div id="team" class="team">
-      <h2 class="team-section-header light text-center">EARL Champ Ramard</h2>
-
-      <center>
-        <div >
-        <div />
-
-        <div class="col-sm-6">
-          <a href="tel:+33160671423" class="social-badge" style="background-color:#19a96e;"><img src="assets/images/phone-solid.svg" width="22px"/></a>
-          <a href="tel:+33160671423" class="social-text" style="background-color:#19a96e;">+33160671423</a>
-        </div>
-        <div class="col-sm-6">
-          <a href="https://www.facebook.com/earl.champramard" class="social-badge" style="background-color:#3d5a99;"><img src="assets/images/facebook.svg" /></a>
-          <a href="https://www.facebook.com/earl.champramard" class="social-text" style="background-color:#3d5a99;">earl.champramard</a>
-        </div>
-        <!--<div class="col-sm-4">
-          <a class="open-timetable social-badge" style="background-color:#248763;"><img src="assets/images/walking-solid.svg" width="15px"/></a>
-          <a class="open-timetable social-text" style="background-color:#248763;">Nous nous déplaçons</a>
-        </div>-->
-
-        <br/>
-
-        <iframe width="80%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.187009585154446%2C48.39682372278454%2C3.1897695782307705%2C48.397838825692546&amp;layer=mapnik&amp;marker=48.39733127677034%2C3.1883895816926042" style="border: 1px solid black"></iframe><br/>
-      </center>
-
+    <h2 class="team-section-header light text-center">EARL Champ Ramard</h2>
+    <center>
+      <div class="col-sm-6">
+        <a href="tel:+33160671423" class="social-badge" style="background-color:#19a96e;"><img src="assets/images/phone-solid.svg" width="22px"/></a>
+        <a href="tel:+33160671423" class="social-text" style="background-color:#19a96e;">+33160671423</a>
+      </div>
+      <div class="col-sm-6">
+        <a href="https://www.facebook.com/earl.champramard" class="social-badge" style="background-color:#3d5a99;"><img src="assets/images/facebook.svg" /></a>
+        <a href="https://www.facebook.com/earl.champramard" class="social-text" style="background-color:#3d5a99;">earl.champramard</a>
+      </div>
+      <!--<div class="col-sm-4">
+        <a class="open-timetable social-badge" style="background-color:#248763;"><img src="assets/images/walking-solid.svg" width="15px"/></a>
+        <a class="open-timetable social-text" style="background-color:#248763;">Nous nous déplaçons</a>
+      </div>-->
+      <br/>
+      <iframe width="80%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.187009585154446%2C48.39682372278454%2C3.1897695782307705%2C48.397838825692546&amp;layer=mapnik&amp;marker=48.39733127677034%2C3.1883895816926042" style="border: 1px solid black"></iframe><br/>
+    </center>
   </div> <!--team-section--->
-
-  <div id="tyModal" class="modal">
-    <div class="modal-content">
-     <div class="modal-header">
-       <span class="close">&times;</span>
-       <h3 id="res-title"></h3>
-     </div>
-     <div class="modal-body">
-       <br/>
-       <p id="res-hello"></p>
-       <p id="res-msg"></p>
-       <p id="res-sts"></p>
-       <ul id="res-panier" style="display:block;">
-         <li><b>Asperges blanches : </b><span id="res-aspb">?</span> portion(s)</li>
-         <li><b>Asperges vertes : </b><span id="res-aspv">?</span> portion(s)</li>
-         <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
-       </ul>
-       <p>Merci encore et à très bientôt !</p>
-     </div>
-    </div>
-  </div>
 
   <!-- MODALS -->
   <modal-copyright></modal-copyright>
@@ -298,13 +260,15 @@
       updateSettings(); // imported from index_orders
     });
 
-    try {
       if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js');
-      };
-    } catch {
-      // pass
-    }
+        navigator.serviceWorker.register('https://champ-ramard.fr/assets/sw/sw.js').then(
+        (registration) => {
+          console.log("Service worker registration succeeded:", registration);
+        },
+        (error) => {
+          console.error(`Service worker registration failed: ${error}`);
+        });
+      }
   </script>
   </body>
 </html>

@@ -59,3 +59,40 @@ formatDate = function(date) {
         day = '0' + day;
     return [year, month, day].join('-');
 }
+
+// Create URL with query params
+//
+// qty = {'aspb':1, 'aspv':1, 'fraise':0}
+// "commander.html?aspb=2&aspv=0&fraise=1"
+//
+createOrderURL = function(qty){
+  let href = "commander.html";
+  let sep = '?';
+  for (const [key, value] of Object.entries(qty)) {
+    href = href + sep + key + "=" + value;
+    sep = "&";
+  }
+  return href;
+}
+
+
+// Returns a dict with id-cmd and date of order
+//
+loadLastOrdersSeen = function(){
+  let lastOrders = localStorage.getItem('last-orders');
+  if(lastOrders == null){
+    lastOrders = {};
+  } else {
+    lastOrders = JSON.parse(lastOrders);
+  }
+  return lastOrders;
+}
+
+
+// Add a new order to the list saved in localStorage
+//
+appendNewOrder = function(idCmd, details){
+  let lastOrders = loadLastOrdersSeen();
+  lastOrders[idCmd] = details["day"];
+  localStorage.setItem('last-orders', JSON.stringify(lastOrders));
+}

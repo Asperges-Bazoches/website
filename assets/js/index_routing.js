@@ -2,14 +2,10 @@
 const retrieveOrderInfo = function(idCmd){
   if(idCmd != null){
     $.get("https://api.champ-ramard.fr/v2/public/status.php?id_cmd="+idCmd, function(result){
-      document.getElementById("res-panier").style = "display:block;";
-      console.log(result);
-      console.log(result["res"]);
-
       let modal = document.getElementsByTagName('modal-order')[0]
-
       if(result["res"]=="ok"){
 
+        appendNewOrder(idCmd, result)
         modal.addCommandDetails(result);
 
         if(urlParams.get("ty") !== null){
