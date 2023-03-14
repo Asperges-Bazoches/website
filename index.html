@@ -42,8 +42,11 @@
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
               crossorigin="anonymous"></script>
+      
       <script src="assets/js/toolbox.js"></script>
       <script src="components/product.js"></script>
+      <script src="components/modal.js"></script>
+      <script src="components/modal_copyright.js"></script>
   </head>
 
   <body>
@@ -192,7 +195,7 @@
           document.getElementById('continue-order').addEventListener('click', function(){
             let qty = {};
             for (var prodId of ["aspb", "aspv", "fraise"]) {
-              qty[prodId] = document.getElementById(prodId).getTotalSize()
+              qty[prodId] = document.getElementById(prodId).getNumberOfItems()
             }
             window.location.href = createOrderURL(qty);
           })
@@ -244,22 +247,6 @@
 
   </div> <!--team-section--->
 
-  <div id="credits" class="modal"><div id="copyrightContent"></div>
-    <script>
-      $(function(){
-        $("#copyrightContent").load("assets/components/modals/copyright.html");
-      });
-    </script>
-  </div>
-
-  <div id="timetableModal" class="modal"><div id="timetableContent"></div>
-    <script>
-      $(function(){
-        $("#timetableContent").load("assets/components/modals/timetable.html");
-      });
-    </script>
-  </div>
-
   <div id="tyModal" class="modal">
     <div class="modal-content">
      <div class="modal-header">
@@ -281,12 +268,17 @@
     </div>
   </div>
 
+  <modal-copyright></modal-copyright>
+
   <!-- Footer -->
   <div class="footer">
       <div class="container">
           <div class="row">
             <div class="col-sm-3">
-              <span class="webscope-text"><a class="open-credits" style="color:white">Crédits et confidentialité</a></span></div>
+              <span class="webscope-text">
+                <a id="open-credits" style="color:white">Crédits et confidentialité</a>
+                <script>document.getElementById('open-credits').onclick = function(){document.getElementsByTagName('modal-copyright')[0].open()}</script>
+              </span></div>
             <div class="col-sm-6 webscope">
               <span class="webscope-text">Copyright © EARL Champ Ramard 2023</span></div>
             <div class="col-sm-3 admin-section">
