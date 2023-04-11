@@ -77,7 +77,7 @@ document.getElementById("order-form").onsubmit = function(event){
         window.location.replace(data["redirect"]);
       } else {
         document.getElementById("coffees").style.display = "none";
-        document.getElementById("instrsuction").innerText = "Au moins une des informations que vous avez renseignées a été jugée illicite. Cela peut provenir de la présence de caractères spéciaux. Si le problème persiste, n'hésitez pas à passer la commande par téléphone au 0160671423.";
+        document.getElementById("instruction").innerText = "Au moins une des informations que vous avez renseignées a été jugée illicite. Cela peut provenir de la présence de caractères spéciaux. Si le problème persiste, n'hésitez pas à passer la commande par téléphone au 0160671423.";
         document.getElementById("submit").style["border-color"] = "red";
         //console.log(JSON.stringify(data))
       }
