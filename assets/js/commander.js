@@ -66,11 +66,14 @@ document.getElementById("order-form").onsubmit = function(event){
   if(ok){
     let body = {'ghost': document.getElementById("ghooost").value};
     for(name of [
-      "name", 'email', 'phone', 'aspb', 'aspv', 'fraise',
+      "name", 'email', 'phone',
       "date", "hour", "place", "more"
     ]){
       body[name] = document.getElementById(name).value;
     }
+    body["aspb"] = document.getElementById("aspb").getNumberOfItems()
+    body["aspv"] = document.getElementById("aspv").getNumberOfItems()
+    body["fraise"] = document.getElementById("fraise").getNumberOfItems()
     $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data, status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
       if(status == "success" && data["res"]=="ok"){
