@@ -6,7 +6,7 @@ const retrieveOrderInfo = function(idCmd){
       if(result["res"]=="ok"){
 
         appendNewOrder(idCmd, result)
-        modal.addCommandDetails(result);
+        modal.addCommandDetails(idCmd, result);
 
         if(urlParams.get("ty") !== null){
           modal.tagAsRegistered();
