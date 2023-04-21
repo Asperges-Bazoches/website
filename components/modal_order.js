@@ -18,9 +18,9 @@ class OrderInfoModal extends Modal {
           <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
         </ul>
         <p><b>Attention :</b> Pour vous protéger des arnaques, certaines boites mails semblent avoir durci leur politique anti courrier indésirable. \
-        Le plus souvent, les mails détectés indésirables, vont dans le dossier "SPAM" ou "Courrier indésirable", mais il est aussi possible que vous ne receviez pas les mails automatiques que nous vous envoyons. \
+        Le plus souvent, les mails détectés indésirables vont dans le dossier "SPAM" ou "Courrier indésirable", mais il est aussi possible que vous ne receviez pas les mails automatiques que nous vous envoyons. \
         Si vous ne recevez pas les mails, vous pouvez toujours suivre l'état de votre commande depuis champ-ramard.fr \
-        en utilisant votre numéro de commande (exemple: "01-ABCD").</p><br/>
+        en utilisant votre numéro de commande (exemple: '01-ABCD').</p><br/>
         <p>Merci encore et à très bientôt !</p>
       </div>
       `
@@ -42,7 +42,7 @@ class OrderInfoModal extends Modal {
     for(let info of ["aspb", "aspv", "fraise"]){
       this.getElem("res-"+info).innerText = details[info];
     }
-    this.getElem("res-details").innerText = this.getElem("res-details").innerText + " " + idCmd + " :";
+    this.getElem("res-details").innerText = this.getElem("res-details").innerText + " " + idCmd + " (noter bien dans un coin ce numéro!):";
   }
 
   commandNotFound() {
