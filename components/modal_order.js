@@ -11,16 +11,16 @@ class OrderInfoModal extends Modal {
         <p id="res-hello"></p>
         <p id="res-msg"></p>
         <p id="res-sts"></p>
-        <p id="res-details"><b>Détails de la commande</b></p>
+        <p id="res-details"><b>Détails de la commande <span id='idCmd'></span></b></p>
         <ul id="res-panier" style="display:block;">
           <li><b>Asperges blanches : </b><span id="res-aspb">?</span> portion(s)</li>
           <li><b>Asperges vertes : </b><span id="res-aspv">?</span> portion(s)</li>
           <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
         </ul>
-        <p><b>Attention :</b> Pour vous protéger des arnaques, certaines boites mails semblent avoir durci leur politique anti courrier indésirable. \
+        <p id="warning-spam" style='display: none;'><b>Attention :</b> Pour vous protéger des arnaques, certaines boites mails semblent avoir durci leur politique anti courrier indésirable. \
         Le plus souvent, les mails détectés indésirables vont dans le dossier "SPAM" ou "Courrier indésirable", mais il est aussi possible que vous ne receviez pas les mails automatiques que nous vous envoyons. \
         Si vous ne recevez pas les mails, vous pouvez toujours suivre l'état de votre commande depuis champ-ramard.fr \
-        en utilisant votre numéro de commande (exemple: '01-ABCD').</p><br/>
+        en utilisant votre numéro de commande (<span id='idCmd2'></span>).</p><br/>
         <p>Merci encore et à très bientôt !</p>
       </div>
       `
@@ -42,7 +42,9 @@ class OrderInfoModal extends Modal {
     for(let info of ["aspb", "aspv", "fraise"]){
       this.getElem("res-"+info).innerText = details[info];
     }
-    this.getElem("res-details").innerText = this.getElem("res-details").innerText + " " + idCmd + " (noter bien dans un coin ce numéro!):";
+    this.idCmd = idCmd;
+    this.getElem("idCmd").innerText = idCmd;
+    this.getElem("idCmd2").innerText = idCmd;
   }
 
   commandNotFound() {
@@ -56,8 +58,8 @@ class OrderInfoModal extends Modal {
   tagAsRegistered() {
     this.getElem("res-hello").innerText = "";
     this.getElem("modal-title").innerText = "Merci pour votre commande";
-    this.getElem("res-msg").innerText = this.details["name"] + `\
-      , votre commande a bien été enregistrée.
+    this.getElem('warning-spam').style.display = "block";
+    this.getElem("res-msg").innerText = 'Bonjour ' + this.details["name"] + ', votre commande ' + this.idCmd + ` a bien été enregistrée.
 
       Vous allez recevoir un premier mail récapitulatif, puis un second validant ou invalidant la commande.\
       Si votre commande est invalidée, nous vous rappelerons rapidement afin de convenir d'un nouvel horaire.`;
@@ -66,7 +68,7 @@ class OrderInfoModal extends Modal {
   tagAsAccepted() {
     this.getElem("res-hello").innerText = "Bonjour " + this.details["name"] + ",";
     this.getElem("modal-title").innerText = "Détails de votre commande";
-    this.getElem("res-sts").innerText = "Votre commande a été acceptée. Rendez-vous le " + this.details["day"] + ", " + this.details["hour"] + " à "+ this.details["place"];
+    this.getElem("res-sts").innerText = "Votre commande a été acceptée. Rendez-vous le " + this.details["day"] + ", entre " + this.details["hour"] + " à "+ this.details["place"];
   }
 
   tagAsArchived() {
