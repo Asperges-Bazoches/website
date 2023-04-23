@@ -22,6 +22,54 @@ function fetchSettings(){
   )
 }
 
+
+// Create an order summary
+//
+// https://artskydj.github.io/jsPDF/docs/jsPDF.html
+function generateInvoice(idCmd, details){
+  var doc = new jspdf.jsPDF({
+   orientation: 'p',
+   unit: 'pt',
+   format: 'a4',
+   putOnlyUsedFonts:true
+  });
+  var elementHandler = {
+    '#ignorePDF': function (element, renderer) {
+      return true;
+    }
+  };
+
+  var source = document.createElement("div");
+    source.innerHTML = `
+    <div style="font-size:11px; padding: 5px 15px; width:600px;">
+      <h3>EARL Champ-Ramard</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li>+33160671423</li>
+        <li>contact@champ-ramard.fr</li>
+        <li>https://champ-ramard.fr</li>
+        <li>9 grande rue, 77118 Bazoches-Lès-Bray</li>
+      </ul>
+      <br/>
+      <h4>Reçu de commande</h4>
+      <p>Détails de la commande NN-XXXX</p>
+      <ul>
+        <li>Asperges blanches</li>
+        <li>Asperges vertes</li>
+        <li>Fraises</li>
+      </ul>
+      <p>Suivre ma commande à l'adresse: <a href="https://champ-ramard.fr?id-cmd=NN-XXXX">https://champ-ramard.fr?id-cmd=NN-XXXX</a>
+      <p>Montant à payer sur place (chèque ou espèce): XXX€
+    </div>
+    `
+  doc.html(source, {
+    callback: function (doc) {
+      doc.save();
+    }
+  });
+
+}
+
+
 // Compute bill from products components
 //
 // PARAMS:
