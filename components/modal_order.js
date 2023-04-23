@@ -16,13 +16,18 @@ class OrderInfoModal extends Modal {
           <li><b>Asperges blanches : </b><span id="res-aspb">?</span> portion(s)</li>
           <li><b>Asperges vertes : </b><span id="res-aspv">?</span> portion(s)</li>
           <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
-        </ul>
+        </ul><br/>
+        <center id="invoice" style='display: none;'>
+          <img src="assets/images/download-solid.svg"
+               style="filter: invert(48%) sepia(20%) saturate(3000%) hue-rotate(86deg) brightness(118%) contrast(10%);"
+               width=50 />
+          <h5><a style='color: #748875;'>Télécharger un reçu</a></h5>
+        </center><br/>
         <p id="warning-spam" style='display: none;'><b>Attention :</b> Pour vous protéger des arnaques, certaines boites mails semblent avoir durci leur politique anti courrier indésirable. \
         Le plus souvent, les mails détectés indésirables vont dans le dossier "SPAM" ou "Courrier indésirable", mais il est aussi possible que vous ne receviez pas les mails automatiques que nous vous envoyons. \
         Si vous ne recevez pas les mails, vous pouvez toujours suivre l'état de votre commande depuis champ-ramard.fr \
-        en utilisant votre numéro de commande (<span id='idCmd2'></span>).</p>
-        <h5><a id="invoice">Télécharger un reçu</a></h5><br/>
-        <p>Merci encore et à très bientôt !</p>
+        en utilisant votre numéro de commande (<span id='idCmd2'></span>).</p><br/>
+        <p>Merci encore et à très bientôt !</p><br/><br/>
       </div>
       `
     // Create new Shadow Root
@@ -46,7 +51,7 @@ class OrderInfoModal extends Modal {
     this.idCmd = idCmd;
     this.getElem("idCmd").innerText = idCmd;
     this.getElem("idCmd2").innerText = idCmd;
-    this.getElem("invoice").onclick = function(){generateInvoice(idCmd, details)}
+    this.getElem("invoice").onclick = function(){generateInvoice(idCmd, details, settings)}
   }
 
   commandNotFound() {
@@ -61,6 +66,7 @@ class OrderInfoModal extends Modal {
     this.getElem("res-hello").innerText = "";
     this.getElem("modal-title").innerText = "Merci pour votre commande";
     this.getElem('warning-spam').style.display = "block";
+    this.getElem('invoice').style.display = "block";
     this.getElem("res-msg").innerText = 'Bonjour ' + this.details["name"] + ', votre commande ' + this.idCmd + ` a bien été enregistrée.
 
       Vous allez recevoir un premier mail récapitulatif, puis un second validant ou invalidant la commande.\

@@ -26,7 +26,7 @@ function fetchSettings(){
 // Create an order summary
 //
 // https://artskydj.github.io/jsPDF/docs/jsPDF.html
-function generateInvoice(idCmd, details){
+function generateInvoice(idCmd, details, settings){
   var doc = new jspdf.jsPDF({
    orientation: 'p',
    unit: 'pt',
@@ -42,6 +42,10 @@ function generateInvoice(idCmd, details){
   var source = document.createElement("div");
     source.innerHTML = `
     <div style="font-size:11px; padding: 5px 15px; width:600px;">
+      <p>
+        Commande réalisée le <span id="invoice-dt-order"></span>.
+        Reçu généré le <span id="invoice-dt"></span>.
+      </p>
       <h3>EARL Champ-Ramard</h3>
       <ul style="list-style-type: none; padding-left: 0;">
         <li>+33160671423</li>
@@ -51,19 +55,42 @@ function generateInvoice(idCmd, details){
       </ul>
       <br/>
       <h4>Reçu de commande</h4>
-      <p>Détails de la commande NN-XXXX</p>
+      <p>Détails de la commande <span id="invoice-idcmd">?</span></p>
       <ul>
-        <li>Asperges blanches</li>
-        <li>Asperges vertes</li>
-        <li>Fraises</li>
+        <li><b>Asperges blanches : </b><span id="invoice-aspb">?</span> portion(s)</li>
+        <li><b>Asperges vertes : </b><span id="invoice-aspv">?</span> portion(s)</li>
+        <li><b>Fraises : </b><span id="invoice-fraise">?</span> portion(s)</li>
       </ul>
-      <p>Suivre ma commande à l'adresse: <a href="https://champ-ramard.fr?id-cmd=NN-XXXX">https://champ-ramard.fr?id-cmd=NN-XXXX</a>
-      <p>Montant à payer sur place (chèque ou espèce): XXX€
+      <p>Suivre ma commande à l'adresse: <a id="invoice-link" href="https://champ-ramard.fr?id-cmd=">https://champ-ramard.fr?id-cmd=</a>
+      <p>Montant à payer sur place (chèque ou espèce): <span id="invoice-price"></span></p>
+      <br/><br/><hr/>
+      <h4>Rappel des différentes étapes :</h4>
+      <ol>
+        <li>Je réalise ma commande sur champ-ramard.fr;</li>
+        <li>Un mail m'est envoyé sur ma boite mail (potentiellement dans le dossier SPAM / Courriers indésirables);</li>
+        <li>La commande sera acceptée ou refusée en fonction de la disponibilité des produits;</li>
+        <li>Un mail me sera envoyé une fois ma commande traitée;</li>
+        <li>A tout moment, je peux suivre ma commande sur champ-ramard.fr;</li>
+        <li>Je paye ma commande sur place, en espèce ou chèque, au moment de récupérer mes produits.</li>
+      </ol><hr/>
+
+
     </div>
     `
+
+    for(let info of ["aspb", "aspv", "fraise"]){
+      source.querySelector("#invoice-"+info).innerText = details[info];
+    }
+    source.querySelector("#invoice-idcmd").innerText = idCmd;
+    source.querySelector("#invoice-link").href = source.querySelector("#invoice-link").href + idCmd;
+    source.querySelector("#invoice-link").innerText = source.querySelector("#invoice-link").innerText + idCmd;
+    source.querySelector("#invoice-price").innerText = computeBill2(details, settings) + "€";
+    source.querySelector("#invoice-dt-order").innerText = details['dt_order'];
+    source.querySelector("#invoice-dt").innerText = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
   doc.html(source, {
     callback: function (doc) {
-      doc.save();
+      doc.save("champramard_commande_" + idCmd + ".pdf");
     }
   });
 
@@ -86,6 +113,24 @@ computeBill = function(amount){
   price = 0;
   for(ipt of ["aspb", "aspv", "fraise"]){
     price += Number(amount[ipt]);
+  }
+  if (isNaN(price)){
+    return '... '
+  } else {
+    return parseFloat(price).toFixed(2);
+  }
+}
+
+// Compute bill from products components
+//
+// PARAMS:
+//  - quantities: quantities for each product
+//  - settings: settings with prices
+//
+computeBill2 = function(quantities, settings){
+  price = 0;
+  for(ipt of ["aspb", "aspv", "fraise"]){
+    price += Number(quantities[ipt]) * Number(settings[ipt + "_price"]);
   }
   if (isNaN(price)){
     return '... '
