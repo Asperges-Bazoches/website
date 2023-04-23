@@ -90,9 +90,7 @@ function generateInvoice(idCmd, details, settings){
 
   doc.html(source, {
     callback: function (doc) {
-      var blobPdf = new Blob([doc.output('blob')], {type: 'application/pdf'});
-      var blobUrl = URL.createObjectURL(blobPdf);
-      window.open(blobUrl);
+      doc.save("champramard_commande_" + idCmd + ".pdf");
     }
   });
 
