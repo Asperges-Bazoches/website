@@ -51,7 +51,7 @@
   <body>
   <script>
     // GLOBAL VARIABLE
-    var settings = {'aspb': true, 'aspv': true, 'fraise': true};
+    var settings = {'aspb': true, 'aspv': true, 'aspb-pte': true, 'aspv-pte': true, 'fraise': true};
   </script>
 
   <div id="delivery" class="delivery-section">
@@ -107,13 +107,13 @@
 
         <!-- DEFAULT VIEW --->
         <h3>Mon panier <a id="edit-basket">(Modifier)</a></h3><br/>
-        <p class="plan-title light"> ASPERGES BLANCHES<br/>
+        <p class="plan-title light"> ASPERGES BLANCHES / POINTES BLANCHES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
-          <span id="prev-aspb">0</span>KG</p>
+          <span id="prev-aspb">0</span>KG / <span id="prev-aspb-pte">0</span>KG</p>
         <hr/>
-        <p class="plan-title light"> ASPERGES VERTES<br/>
+        <p class="plan-title light"> ASPERGES VERTES / POINTES VERTES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
-          <span id="prev-aspv">0</span>KG</p>
+          <span id="prev-aspv">0</span>KG / <span id="prev-aspv-pte">0</span>KG</p>
         <hr/>
         <p class="plan-title light"> FRAISES<br/>
           <img class="emoji" src="assets/images/strawberry.svg" style="width:40px" />
@@ -121,16 +121,18 @@
       </div>
 
       <!-- BASKET EDITION VIEW --->
-      <div id="basket-edition" class="pricing-table row" style="display:none;">
+      <div id="basket-edition" class="pricing-table row" style="display:none; overflow-x: scroll;">
         <div-product id="aspb" name="ASPERGES BLANCHES"></div-product>
         <div-product id="aspv" name="ASPERGES VERTES"></div-product>
+        <div-product id="aspb-pte" name="ASPERGES BLANCHES"></div-product>
+        <div-product id="aspv-pte" name="ASPERGES VERTES"></div-product>
         <div-product id="fraise" name="FRAISES"></div-product>
       </div>
 
       <!-- BASKET EDITION/SUMMARY BUTTON --->
       <script>
         document.getElementById("edit-basket").onclick = function(){
-          document.getElementById("basket-edition").style.display = "block";
+          document.getElementById("basket-edition").style.display = "flex";
           document.getElementById("basket-summary").style.display = "none";}
       </script>
 

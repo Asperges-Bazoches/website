@@ -2,8 +2,7 @@
 function updateSettings() {
   const mapping_size = {'aspb': "1kg", 'aspv': "1kg", 'fraise': "500g"}
 
-  // 'aspb-pte', 'aspv-pte',
-  for (key of ['aspb', 'aspv', 'fraise']) {
+  for (key of ['aspb', 'aspv', 'aspb-pte', 'aspv-pte', 'fraise']) {
     elem = document.getElementById(key)
     settings[key] ? elem.enable() : elem.disable();
     elem.setUnitPrice(settings[key + '_price']);
@@ -20,11 +19,13 @@ function updateSettings() {
 }
 
 // Add behaviour when change size of each product
-for (ipt of ["aspb", "aspv", "fraise"]){
+for (ipt of ["aspb", "aspv", 'aspb-pte', 'aspv-pte', "fraise"]){
   document.getElementById(ipt).onChange(() => {
     let price = computeBill({
       'aspb': document.getElementById("aspb").getTotalPrice(),
       'aspv': document.getElementById("aspv").getTotalPrice(),
+      'aspb-pte': document.getElementById("aspb-pte").getTotalPrice(),
+      'aspv-pte': document.getElementById("aspv-pte").getTotalPrice(),
       'fraise': document.getElementById("fraise").getTotalPrice(),
     })
 

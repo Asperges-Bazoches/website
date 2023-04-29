@@ -111,7 +111,7 @@ function generateInvoice(idCmd, details, settings){
 //
 computeBill = function(amount){
   price = 0;
-  for(ipt of ["aspb", "aspv", "fraise"]){
+  for(ipt of ["aspb", "aspv", "aspb-pte", "aspv-pte", "fraise"]){
     price += Number(amount[ipt]);
   }
   if (isNaN(price)){
@@ -129,7 +129,7 @@ computeBill = function(amount){
 //
 computeBill2 = function(quantities, settings){
   price = 0;
-  for(ipt of ["aspb", "aspv", "fraise"]){
+  for(ipt of ["aspb", "aspv",  "aspb-pte", "aspv-pte", "fraise"]){
     price += Number(quantities[ipt]) * Number(settings[ipt + "_price"]);
   }
   if (isNaN(price)){
