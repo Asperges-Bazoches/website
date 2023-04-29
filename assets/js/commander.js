@@ -1,9 +1,13 @@
 // FUNCTIONS
 
+const PRODUCTS=['aspb', 'aspv', 'aspb-pte', 'aspv-pte', 'fraise'];
+
 function updateSettings(){
-  const mapping_size = {'aspb': "1kg", 'aspv': "1kg", 'fraise': "500g"}
+  const mapping_size = {
+    'aspb': "1kg", 'aspv': "1kg", 'aspb-pte': "1kg", 'aspv-pte': "1kg", 'fraise': "500g"
+  }
   // set unit price / lot size for each item
-  for (key of ['aspb', 'aspv', 'fraise']) {
+  for (key of PRODUCTS) {
     elem = document.getElementById(key);
     settings[key] ? elem.enable() : elem.disable();
     elem.setUnitPrice(settings[key + '_price']);
@@ -25,12 +29,14 @@ function updateBasket() {
   let price = computeBill({
     'aspb': document.getElementById("aspb").getTotalPrice(),
     'aspv': document.getElementById("aspv").getTotalPrice(),
+    'aspb-pte': document.getElementById("aspb-pte").getTotalPrice(),
+    'aspv-pte': document.getElementById("aspv-pte").getTotalPrice(),
     'fraise': document.getElementById("fraise").getTotalPrice(),
   })
   document.getElementById("price").innerText = price;
 
   // update quantities
-  for(ipt of ["aspb", "aspv", "fraise"]){
+  for(ipt of PRODUCTS){
     elem = document.getElementById(ipt);
     prev = document.getElementById("prev-"+ipt);
     prev.innerText = elem.getWeight();
@@ -51,7 +57,7 @@ $(document).on("keypress", 'form', function (e) {
 
 // INIT BASKET FROM URL
 const urlParamsPanier = new URLSearchParams(window.location.search);
-for(ipt of ["aspb", "aspv", "fraise"]){
+for(ipt of PRODUCTS){
   elem = document.getElementById(ipt);
   elem.setNumberOfItems(urlParamsPanier.get(ipt) ? urlParamsPanier.get(ipt) : 0);
   elem.onChange(updateBasket);
@@ -71,9 +77,9 @@ document.getElementById("order-form").onsubmit = function(event){
     ]){
       body[name] = document.getElementById(name).value;
     }
-    body["aspb"] = document.getElementById("aspb").getNumberOfItems()
-    body["aspv"] = document.getElementById("aspv").getNumberOfItems()
-    body["fraise"] = document.getElementById("fraise").getNumberOfItems()
+    for(ipt of PRODUCTS){
+      body[ipt] = document.getElementById(ipt).getNumberOfItems()
+    }
     $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data, status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
       if(status == "success" && data["res"]=="ok"){

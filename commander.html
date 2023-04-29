@@ -51,7 +51,7 @@
   <body>
   <script>
     // GLOBAL VARIABLE
-    var settings = {'aspb': true, 'aspv': true, 'fraise': true};
+    var settings = {'aspb': true, 'aspv': true, 'aspb-pte': true, 'aspv-pte': true, 'fraise': true};
   </script>
 
   <div id="delivery" class="delivery-section">
@@ -107,13 +107,13 @@
 
         <!-- DEFAULT VIEW --->
         <h3>Mon panier <a id="edit-basket">(Modifier)</a></h3><br/>
-        <p class="plan-title light"> ASPERGES BLANCHES<br/>
+        <p class="plan-title light"> ASPERGES BLANCHES / POINTES BLANCHES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
-          <span id="prev-aspb">0</span>KG</p>
+          <span id="prev-aspb">0</span>KG / <span id="prev-aspb-pte">0</span>KG</p>
         <hr/>
-        <p class="plan-title light"> ASPERGES VERTES<br/>
+        <p class="plan-title light"> ASPERGES VERTES / POINTES VERTES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
-          <span id="prev-aspv">0</span>KG</p>
+          <span id="prev-aspv">0</span>KG / <span id="prev-aspv-pte">0</span>KG</p>
         <hr/>
         <p class="plan-title light"> FRAISES<br/>
           <img class="emoji" src="assets/images/strawberry.svg" style="width:40px" />
@@ -121,16 +121,18 @@
       </div>
 
       <!-- BASKET EDITION VIEW --->
-      <div id="basket-edition" class="pricing-table row" style="display:none;">
+      <div id="basket-edition" class="pricing-table row" style="display:none; overflow-x: scroll;">
         <div-product id="aspb" name="ASPERGES BLANCHES"></div-product>
         <div-product id="aspv" name="ASPERGES VERTES"></div-product>
+        <div-product id="aspb-pte" name="ASPERGES BLANCHES"></div-product>
+        <div-product id="aspv-pte" name="ASPERGES VERTES"></div-product>
         <div-product id="fraise" name="FRAISES"></div-product>
       </div>
 
       <!-- BASKET EDITION/SUMMARY BUTTON --->
       <script>
         document.getElementById("edit-basket").onclick = function(){
-          document.getElementById("basket-edition").style.display = "block";
+          document.getElementById("basket-edition").style.display = "flex";
           document.getElementById("basket-summary").style.display = "none";}
       </script>
 
@@ -144,7 +146,7 @@
         <div class="col-sm-3" style="margin-bottom: 30px">
           <label for="place">Point de vente <!--</label><a class="open-timetable"> (Notre planning)</a>--><br/>
           <select name="place" id="place" required>
-            <option value="Bazoches-Lès-Bray">Bazoches-Lès-Bray (Tous les jours)</option>
+            <option value="Bazoches-Lès-Bray">Bazoches-Lès-Bray (L-M-Me-J-V-S)</option>
             <!--<option value="Livraison">Demande de livraison</option>-->
           </select><br/><br/>
           <label for="date">Date</label><br/><input type="date" id="date" name="date" value="2020-03-22" min="2020-01-01" max="2020-09-01" required><br/><br/>
@@ -180,7 +182,7 @@
 
        <h2>Montant : <b id="price">0</b>€</h2>
        <p>Paiment en espèce ou par chèque uniquement</p>
-       <p id="instruction">(Anti-robot) Cliquez sur la tasse de gauche jusqu'à ce que les deux soient de la même taille</p>
+       <p id="instruction" style='margin: 0 40px 10px 40px;'>(Anti-robot) Cliquez sur la tasse de gauche jusqu'à ce que les deux soient de la même taille</p>
        <div id="coffees">
          <img id="left-horse" src="assets/images/coffee-solid.svg" style="width:30px;">
          <img src="assets/images/coffee-solid.svg" width="60px"></br></br>

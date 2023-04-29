@@ -176,19 +176,13 @@
           ></div-product>
           <div-product id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
           ></div-product>
-          <!--<div-product id="aspb-pte" name="POINTES BLANCHES" img="assets/images/apserges_blanches.jpg"
+          <div-product id="aspb-pte" name="POINTES BLANCHES" img="assets/images/apserges_blanches.jpg"
           ></div-product>
           <div-product id="aspv-pte" name="POINTES VERTES" img="assets/images/apserges_verte.jpg"
-          ></div-product>-->
+          ></div-product>
           <div-product id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
           ></div-product>
         </div>  <!--pricing-table-->
-
-        <!-- div style="margin-bottom: 10px;">
-          <img src="assets/images/chevron_left.png" width="30px" />
-          <span>Défiler</span>
-          <img src="assets/images/chevron_left.png" width="30px" style="rotate: 180deg;" />
-        </div -->
 
         <center style="margin-bottom:10px; margin-bottom:30px">
           <button id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
@@ -199,7 +193,7 @@
         <script>
           document.getElementById('continue-order').addEventListener('click', function(){
             let qty = {};
-            for (var prodId of ["aspb", "aspv", "fraise"]) {
+            for (var prodId of ["aspb", "aspv", "aspb-pte", "aspv-pte", "fraise"]) {
               qty[prodId] = document.getElementById(prodId).getNumberOfItems()}
             window.location.href = createOrderURL(qty);
           })
