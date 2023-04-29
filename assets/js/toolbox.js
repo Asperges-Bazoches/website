@@ -1,3 +1,5 @@
+const PRODUCTS=["aspb", "aspv",  "aspb-pte", "aspv-pte", "fraise"];
+
 // Fetch settings from public API
 //
 // Variable settings is global and defined
@@ -6,7 +8,7 @@ function fetchSettings(){
   return (
       $.get("https://api.champ-ramard.fr/v2/public/settings.php", function(result){
         for(var k in result) {
-          if(result[k]['STR_KEY']=='aspb' | result[k]['STR_KEY']=='aspv' | result[k]['STR_KEY']=='fraise'){
+          if(PRODUCTS.includes(result[k]['STR_KEY'])){
             if(result[k]['STR_VALUE']=='true'){
               settings[result[k]['STR_KEY']] = true;
             }else if(result[k]['STR_VALUE']=='false'){
@@ -57,9 +59,11 @@ function generateInvoice(idCmd, details, settings){
       <h4>Reçu de commande</h4>
       <p>Détails de la commande <span id="invoice-idcmd">?</span></p>
       <ul>
-        <li><b>Asperges blanches : </b><span id="invoice-aspb">?</span> portion(s)</li>
-        <li><b>Asperges vertes : </b><span id="invoice-aspv">?</span> portion(s)</li>
-        <li><b>Fraises : </b><span id="invoice-fraise">?</span> portion(s)</li>
+        <li><b>Asperges blanches : </b><span id="invoice-aspb">?</span> botte(s)</li>
+        <li><b>Asperges vertes : </b><span id="invoice-aspv">?</span> botte(s)</li>
+        <li><b>Pointes blanches : </b><span id="invoice-aspb-pte">?</span> botte(s)</li>
+        <li><b>Pointes vertes : </b><span id="invoice-aspv-pte">?</span> botte(s)</li>
+        <li><b>Fraises : </b><span id="invoice-fraise">?</span> barquette(s)</li>
       </ul>
       <p>Suivre ma commande à l'adresse: <a id="invoice-link" href="https://champ-ramard.fr?id-cmd=">https://champ-ramard.fr?id-cmd=</a>
       <p>Montant à payer sur place (chèque ou espèce): <span id="invoice-price"></span></p>
@@ -78,7 +82,7 @@ function generateInvoice(idCmd, details, settings){
     </div>
     `
 
-    for(let info of ["aspb", "aspv", "fraise"]){
+    for(let info of PRODUCTS){
       source.querySelector("#invoice-"+info).innerText = details[info];
     }
     source.querySelector("#invoice-idcmd").innerText = idCmd;
@@ -111,7 +115,7 @@ function generateInvoice(idCmd, details, settings){
 //
 computeBill = function(amount){
   price = 0;
-  for(ipt of ["aspb", "aspv", "aspb-pte", "aspv-pte", "fraise"]){
+  for(ipt of PRODUCTS){
     price += Number(amount[ipt]);
   }
   if (isNaN(price)){
@@ -129,7 +133,7 @@ computeBill = function(amount){
 //
 computeBill2 = function(quantities, settings){
   price = 0;
-  for(ipt of ["aspb", "aspv",  "aspb-pte", "aspv-pte", "fraise"]){
+  for(ipt of PRODUCTS){
     price += Number(quantities[ipt]) * Number(settings[ipt + "_price"]);
   }
   if (isNaN(price)){
