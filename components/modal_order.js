@@ -13,9 +13,11 @@ class OrderInfoModal extends Modal {
         <p id="res-sts"></p>
         <p id="res-details"><b>Détails de la commande <span id='idCmd'></span></b></p>
         <ul id="res-panier" style="display:block;">
-          <li><b>Asperges blanches : </b><span id="res-aspb">?</span> portion(s)</li>
-          <li><b>Asperges vertes : </b><span id="res-aspv">?</span> portion(s)</li>
-          <li><b>Fraises : </b><span id="res-fraise">?</span> portion(s)</li>
+          <li><b>Asperges blanches : </b><span id="res-aspb">?</span> botte(s)</li>
+          <li><b>Asperges vertes : </b><span id="res-aspv">?</span> botte(s)</li>
+          <li><b>Pointes blanches : </b><span id="res-aspb-pte">?</span> botte(s)</li>
+          <li><b>Pointes vertes : </b><span id="res-aspv-pte">?</span> botte(s)</li>
+          <li><b>Fraises : </b><span id="res-fraise">?</span> barquette(s)</li>
         </ul><br/>
         <center id="invoice" style='display: none;'>
           <img src="assets/images/download-solid.svg"
@@ -45,7 +47,7 @@ class OrderInfoModal extends Modal {
 
   addCommandDetails(idCmd, details){
     this.details = details
-    for(let info of ["aspb", "aspv", "fraise"]){
+    for(let info of ["aspb", "aspv", "aspb-pte", "aspv-pte", "fraise"]){
       this.getElem("res-"+info).innerText = details[info];
     }
     this.idCmd = idCmd;
