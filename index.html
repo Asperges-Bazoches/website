@@ -171,19 +171,31 @@
       <h4 class=" pricing-section-sub text-center light">... et des fraises (bio) en dessert !</h4>
 
       <center>
-      <div class="pricing-table row">
-        <div-product id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
-        ></div-product>
-        <div-product id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
-        ></div-product>
-        <div-product id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
-        ></div-product>
+        <div class="pricing-table row" style='display: flex; overflow-x: scroll;'>
+          <div-product id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
+          ></div-product>
+          <div-product id="aspv" name="ASPERGES VERTES" img="assets/images/apserges_verte.jpg"
+          ></div-product>
+          <!--<div-product id="aspb-pte" name="POINTES BLANCHES" img="assets/images/apserges_blanches.jpg"
+          ></div-product>
+          <div-product id="aspv-pte" name="POINTES VERTES" img="assets/images/apserges_verte.jpg"
+          ></div-product>-->
+          <div-product id="fraise" name="FRAISES" img="assets/images/strawberry-pixabay.jpg"
+          ></div-product>
+        </div>  <!--pricing-table-->
 
-        <center>
+        <!-- div style="margin-bottom: 10px;">
+          <img src="assets/images/chevron_left.png" width="30px" />
+          <span>Défiler</span>
+          <img src="assets/images/chevron_left.png" width="30px" style="rotate: 180deg;" />
+        </div -->
+
+        <center style="margin-bottom:10px; margin-bottom:30px">
           <button id="continue-order" style="display:none;"><h5>Poursuivre la commande</h5></button>
           <em id="consigne-order" style="display:block;padding-left:20px;padding-right:20px;">
-            Pour commander, commencez par choisir les produits dont vous avez besoin</em>
+            Pour commander, commencez par choisir les produits dont vous avez besoin en les faisant défiler horizontalement</em>
         </center>
+
         <script>
           document.getElementById('continue-order').addEventListener('click', function(){
             let qty = {};
@@ -192,8 +204,7 @@
             window.location.href = createOrderURL(qty);
           })
         </script>
-      </div>  <!--pricing-table-->
-    </center>
+      </center>
 
   </div><!--pricing-background-->
 

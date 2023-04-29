@@ -1,7 +1,8 @@
-// TODO: Transform this to a component
+
 function updateSettings() {
   const mapping_size = {'aspb': "1kg", 'aspv': "1kg", 'fraise': "500g"}
 
+  // 'aspb-pte', 'aspv-pte',
   for (key of ['aspb', 'aspv', 'fraise']) {
     elem = document.getElementById(key)
     settings[key] ? elem.enable() : elem.disable();

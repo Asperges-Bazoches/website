@@ -8,7 +8,7 @@ class Product extends HTMLElement {
       template.innerHTML = `
       <link rel="stylesheet" href="assets/css/styles.pure.css"/>
       <div class="col-sm-4">
-        <div id="box" class="mid-plan">
+        <div id="box" class="mid-plan" style="width:300px;">
           <center><img id="img" src=""  width="190px" /></center>
           <h3 id='label' class="plan-title light"></h3>
           <h4 id="price" class="plan-cost bold"></h4>
