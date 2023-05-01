@@ -1,7 +1,5 @@
 // FUNCTIONS
 
-let PRODUCTS=['aspb', 'aspv', 'aspb-pte', 'aspv-pte', 'fraise'];
-
 function updateSettings(){
   const mapping_size = {
     'aspb': "1kg", 'aspv': "1kg", 'aspb-pte': "1kg", 'aspv-pte': "1kg", 'fraise': "500g"
