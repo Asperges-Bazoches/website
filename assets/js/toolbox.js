@@ -1,4 +1,4 @@
-const PRODUCTS=["aspb", "aspv",  "aspb-pte", "aspv-pte", "fraise"];
+let PRODUCTS=["aspb", "aspv",  "aspb-pte", "aspv-pte", "fraise"];
 
 // Fetch settings from public API
 //
