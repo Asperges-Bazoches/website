@@ -1,5 +1,3 @@
-let PRODUCTS=["aspb", "aspv",  "aspb-pte", "aspv-pte", "fraise"];
-
 // Fetch settings from public API
 //
 // Variable settings is global and defined
