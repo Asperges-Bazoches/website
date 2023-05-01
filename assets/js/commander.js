@@ -1,6 +1,6 @@
 // FUNCTIONS
 
-const PRODUCTS=['aspb', 'aspv', 'aspb-pte', 'aspv-pte', 'fraise'];
+let PRODUCTS=['aspb', 'aspv', 'aspb-pte', 'aspv-pte', 'fraise'];
 
 function updateSettings(){
   const mapping_size = {
