@@ -78,7 +78,7 @@ document.getElementById("order-form").onsubmit = function(event){
     for(ipt of PRODUCTS){
       body[ipt] = document.getElementById(ipt).getNumberOfItems()
     }
-    $.post("https://api.champ-ramard.fr/v3/public/order.php", body, function(data, status){
+    $.post("https://api.champ-ramard.fr/v2/public/order.php", body, function(data, status){
       //"success", "notmodified", "error", "timeout", or "parsererror"
       if(status == "success" && data["res"]=="ok"){
         window.location.replace(data["redirect"]);
