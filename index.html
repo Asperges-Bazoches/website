@@ -111,15 +111,15 @@
 
       <div class="delivery-container row">
 
-        <div class="col-sm-4 feature">
+        <div class="col-sm-3 feature">
           <div class="feature-icon feature-no-display">
             <img class="feature-img" src="assets/images/cart-arrow-down-solid.svg" width="30px">
           </div>
           <h5 class="feature-head-text feature-no-display"> PAR FORMULAIRE </h5>
-          <p class="feature-subtext light feature-no-display"> Utilisez le formulaire de commande, vous receverez un mail ou nous vous rappelerons afin de confirmer la commande. </p>
+          <p class="feature-subtext light feature-no-display"> Utilisez <a style="color:#EF9A9A;" href="#pricing">le formulaire de commande</a>, vous receverez un mail ou nous vous rappelerons afin de confirmer la commande. </p>
         </div>
 
-        <div class="col-sm-4 feature">
+        <div class="col-sm-3 feature">
           <div class="feature-icon feature-no-display">
             <img class="feature-img" src="assets/images/phone-solid.svg" width="30px">
           </div>
@@ -143,7 +143,15 @@
           <p class="feature-subtext light feature-no-display feature-display-mid"> Nous faisons au mieux pour regrouper les commandes village par village. N'hésitez pas à vous regrouper entre vous.</p>
         </div>-->
 
-        <div class="col-sm-4 feature">
+        <div class="col-sm-3 feature">
+          <div class="feature-icon feature-no-display">
+            <img class="feature-img" src="assets/images/cart-arrow-down-solid.svg" width="30px">
+          </div>
+          <h5 class="feature-head-text feature-no-display"> SUIVI DE COMMANDE </h5>
+          <p class="feature-subtext light feature-no-display"> <a style="color:#EF9A9A;" href="#cmd-info">Suivez votre commande depuis le site</a> grâce à votre numéro de commande (exemple: 35-BRUZ). </p>
+        </div>
+
+        <div class="col-sm-3 feature">
           <div class="feature-icon feature-no-display feature-display-last">
             <img class="bullet-img" src="assets/images/money-bill-wave-solid.svg" width="35px">
           </div>
@@ -180,6 +188,26 @@
           <a href="#pricing"><img class="emoji" src="assets/images/logo.svg" style="width:30px" /></a>
           <a href="#pricing"><img class="emoji" src="assets/images/strawberry.svg" style="width:35px" /></a>
         </p>
+
+        <style>
+          .horiz-mvt {
+            -webkit-animation: mover 10s infinite alternate;
+            animation: mover 10s infinite alternate;
+          }
+          @-webkit-keyframes mover {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(20px); }
+            75% { transform: translateX(-20px); }
+            100% { transform: translateX(0); }
+          }
+          @keyframes mover {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(40px); }
+            75% { transform: translateX(-40px); }
+            100% { transform: translateX(0); }
+          }
+        </style>
+        <img class="horiz-mvt" src="assets/images/scroll_horiz.png" width="60px"/>
 
         <div class="pricing-table row" style='display: flex; overflow-x: scroll;'>
           <div-product id="aspb" name="ASPERGES BLANCHES" img="assets/images/apserges_blanches.jpg"
