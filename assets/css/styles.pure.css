@@ -392,10 +392,14 @@ to{bottom:0;opacity:1}
         bottom: 0px;
         z-index: 1000;
         width: 100%;
-        height: 17%; 
+        height: 15%;
         z-index: 1000;
         background-color: #E57373;
-        border-color: #EF9A9A;
+        border-width: 0px;
         color: #FFEBEE;
+    }
+
+    #continue-order > h5 {
+        font-size: 14pt;
     }
 }
