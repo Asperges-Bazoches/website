@@ -107,16 +107,19 @@
       <div id="basket-summary" class="box">
 
         <!-- DEFAULT VIEW --->
-        <h3>Mon panier <a style="color:#EF9A9A;" id="edit-basket">(Modifier)</a></h3><br/>
-        <p class="plan-title light"> ASPERGES BLANCHES / POINTES BLANCHES<br/>
+        <h4>Mon panier <a style="color:#EF9A9A;" id="edit-basket">(Modifier)</a></h4><br/>
+        <p class="plan-title light" style="font-size: 12pt;">
+          ASPERGES BLANCHES / POINTES BLANCHES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
           <span id="prev-aspb">0</span>KG / <span id="prev-aspb-pte">0</span>KG</p>
         <hr/>
-        <p class="plan-title light"> ASPERGES VERTES / POINTES VERTES<br/>
+        <p class="plan-title light" style="font-size: 12pt;">
+          ASPERGES VERTES / POINTES VERTES<br/>
           <img class="emoji" src="assets/images/logo.svg" style="width:40px" />
           <span id="prev-aspv">0</span>KG / <span id="prev-aspv-pte">0</span>KG</p>
         <hr/>
-        <p class="plan-title light"> FRAISES<br/>
+        <p class="plan-title light" style="font-size: 12pt;">
+          FRAISES<br/>
           <img class="emoji" src="assets/images/strawberry.svg" style="width:40px" />
           <span id="prev-fraise">0</span>KG</p>
       </div>
@@ -125,15 +128,17 @@
       <div id="basket-edition" class="pricing-table row" style="display:none; overflow-x: scroll;">
         <div-product id="aspb" name="ASPERGES BLANCHES"></div-product>
         <div-product id="aspv" name="ASPERGES VERTES"></div-product>
-        <div-product id="aspb-pte" name="ASPERGES BLANCHES"></div-product>
-        <div-product id="aspv-pte" name="ASPERGES VERTES"></div-product>
+        <div-product id="aspb-pte" name="POINTES BLANCHES"></div-product>
+        <div-product id="aspv-pte" name="POINTES VERTES"></div-product>
         <div-product id="fraise" name="FRAISES"></div-product>
       </div>
+      <img id="horiz-mvt" class="horiz-mvt" src="assets/images/scroll_horiz.png" width="60px" style="display:none;"/><br/>
 
       <!-- BASKET EDITION/SUMMARY BUTTON --->
       <script>
         document.getElementById("edit-basket").onclick = function(){
           document.getElementById("basket-edition").style.display = "flex";
+          document.getElementById("horiz-mvt").style.display = "block";
           document.getElementById("basket-summary").style.display = "none";}
       </script>
 
