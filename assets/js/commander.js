@@ -63,6 +63,10 @@ for(ipt of PRODUCTS){
 
 // MAKE QUERY TO ADD COMMAND
 document.getElementById("order-form").onsubmit = function(event){
+
+  document.getElementById("submit").style.display = "none";
+  document.getElementById("loading").style.display = "block";
+
   ok = (document.getElementById("name").value.length > 0);
   ok = ok && (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(document.getElementById("email").value));
   ok = ok && (document.getElementById("phone").value.length > 9);
@@ -86,9 +90,16 @@ document.getElementById("order-form").onsubmit = function(event){
         document.getElementById("coffees").style.display = "none";
         document.getElementById("instruction").innerText = "Au moins une des informations que vous avez renseignées a été jugée illicite. Cela peut provenir de la présence de caractères spéciaux. Si le problème persiste, n'hésitez pas à passer la commande par téléphone au 0160671423.";
         document.getElementById("submit").style["border-color"] = "red";
-        //console.log(JSON.stringify(data))
+        document.getElementById("submit").style.display = "block";
+        document.getElementById("loading").style.display = "none";
       }
     });
+  } else {
+    document.getElementById("coffees").style.display = "none";
+    document.getElementById("instruction").innerText = "Au moins une des informations que vous avez renseignées a été jugée illicite. Cela peut provenir de la présence de caractères spéciaux. Si le problème persiste, n'hésitez pas à passer la commande par téléphone au 0160671423.";
+    document.getElementById("submit").style["border-color"] = "red";
+    document.getElementById("submit").style.display = "block";
+    document.getElementById("loading").style.display = "none";
   }
   event.preventDefault();
   return false;
